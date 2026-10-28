@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>搜尋|Jasper 林禹丞</title><meta name="description" content="搜尋網站上的文章與作品。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="搜尋|Jasper 林禹丞"><meta property="og:description" content="搜尋網站上的文章與作品。"><meta property="og:url" content="https://jasper4336-hub.github.io/search/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og-home.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站:我做的學習工具,和做它們的過程。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/search/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"><script>
+  // 先套用讀者上次選的字級,避免畫面跳動
+  try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
+  // 先套用讀者手動選的深淺色,沒選過就跟著系統
+  try { const th = localStorage.getItem('theme'); if (th === 'dark' || th === 'light') document.documentElement.dataset.theme = th; } catch (e) {}
+</script><link rel="stylesheet" href="/_astro/Base.BstT9e0N.css"></head><body><div class="wrap"><header class="site-head"><a class="logo" href="/">Jasper</a><nav class="site-nav" aria-label="主選單"><a href="/works/">作品</a><a href="/posts/">文章</a><a href="/series/">合集</a><a href="/search/" aria-current="page">搜尋</a><a href="/#learn">學習</a><a href="/#about">關於</a><a href="/#contact">聯絡</a></nav></header><div class="readbar"><nav aria-label="本頁段落"></nav><div class="fs" role="group" aria-label="閱讀設定:字級與深淺色"><span>字級 <b id="fs-label">標準</b></span><button type="button" data-fs="-1" aria-label="字級縮小">A−</button><button type="button" data-fs="1" aria-label="字級放大">A+</button><button type="button" class="theme-btn" id="theme-btn" aria-label="切換深色模式" aria-pressed="false">深色</button></div></div><h1 class="t1" style="margin-top: 40px">搜尋</h1><p class="lead">搜尋文章與作品的內文。可以輸入關鍵詞,例如「批判性思考」「證照」「單字」。</p><form class="search-box" id="search-form" role="search" action="/search/"><label for="q" class="kicker">關鍵詞</label><div class="search-in"><input id="q" name="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="輸入想找的內容"><button type="submit">搜尋</button></div></form><p class="search-status" id="search-status" aria-live="polite"></p><ol class="search-results" id="search-results"></ol><footer class="site-foot"><span>© Jasper 林禹丞</span><span>vanyuc0316@gmail.com ・ <a href="https://www.instagram.com/vanyu.c/" style="color: inherit">IG @vanyu.c</a></span></footer></div><script>
+  (function () {
+    const scales = [0.9, 1, 1.15, 1.3];
+    const names = ['小', '標準', '大', '特大'];
+    const root = document.documentElement;
+    const label = document.getElementById('fs-label');
+    let i = scales.indexOf(parseFloat(getComputedStyle(root).getPropertyValue('--k')) || 1);
+    if (i < 0) i = 1;
+    const apply = () => {
+      root.style.setProperty('--k', String(scales[i]));
+      label.textContent = names[i];
+      try { localStorage.setItem('fs-k', String(scales[i])); } catch (e) {}
+    };
+    label.textContent = names[i];
+    document.querySelectorAll('[data-fs]').forEach((b) => b.addEventListener('click', () => {
+      i = Math.min(scales.length - 1, Math.max(0, i + Number(b.dataset.fs)));
+      apply();
+    }));
+
+    // 深淺色切換:按鈕顯示目前是不是深色;手動選過就記住
+    const tb = document.getElementById('theme-btn');
+    const isDark = () => root.dataset.theme === 'dark';
+    const show = () => tb.setAttribute('aria-pressed', String(isDark()));
+    show();
+    tb.addEventListener('click', () => {
+      root.dataset.theme = isDark() ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      show();
+    });
+    // 段落跟隨:捲到哪一段,段落列與側欄目錄就標出哪一段
+    const links = [...document.querySelectorAll('.readbar nav a[href^="#"], .toc a[href^="#"]')];
+    const targets = [...new Set(links.map((a) => decodeURIComponent(a.hash.slice(1))))]
+      .map((id) => document.getElementById(id)).filter(Boolean);
+    if (targets.length) {
+      const bar = document.querySelector('.readbar nav');
+      let current = '';
+      // 讀者開啟「減少動態效果」時,段落列直接跳到位置,不做平滑捲動
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mark = () => {
+        // 最後一個已經捲過畫面上方 1/4 的段落,就是目前在讀的段落
+        const line = window.innerHeight * 0.25;
+        let id = '';
+        for (const t of targets) if (t.getBoundingClientRect().top <= line) id = t.id;
+        if (id === current) return;
+        current = id;
+        for (const a of links) {
+          const on = decodeURIComponent(a.hash.slice(1)) === id;
+          a.classList.toggle('on', on);
+          if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+          // 段落列是橫向捲動的,把目前段落捲進可見範圍(不動到整頁)
+          if (on && bar && bar.contains(a)) bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 3, behavior: still ? 'auto' : 'smooth' });
+        }
+      };
+      let ticking = false;
+      addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; mark(); }); } }, { passive: true });
+      addEventListener('resize', mark);
+      mark();
+    }
+  })();
+</script></body></html><script type="module">const base = "/";
+
+  const input = document.getElementById('q');
+  const status = document.getElementById('search-status');
+  const list = document.getElementById('search-results');
+  let pagefind;
+  try {
+    pagefind = await import(`${base}pagefind/pagefind.js`);
+    await pagefind.init();
+  } catch (e) {
+    status.textContent = '搜尋索引還沒有建立(本機開發時沒有索引)。';
+  }
+
+  // Pagefind 斷詞後會在中文詞之間補空格(「批判 性 思考」),顯示前把中文字與標記之間的空格拿掉
+  const cjk = '[\\p{Script=Han}\\u3000-\\u303f\\uff00-\\uffef]|<\\/?mark>';
+  // 段落交界 Pagefind 會補「. 」,中文前後改回句號
+  const tidy = (html) => html.replace(/(?<=\p{Script=Han}(?:<\/mark>)?)\.\s+/gu, '。').replace(new RegExp(`(?<=${cjk})\\s+(?=${cjk})`, 'gu'), '');
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  let seq = 0;
+  const run = async (term, push) => {
+    const t = term.trim();
+    if (push) history.replaceState(null, '', location.pathname + (t ? '?q=' + encodeURIComponent(t) : ''));
+    if (!pagefind) return;
+    const my = ++seq;
+    if (!t) { list.innerHTML = ''; status.textContent = ''; return; }
+    const res = await pagefind.debouncedSearch(t, {}, 200);
+    if (res === null || my !== seq) return; // 已有更新的輸入
+    const items = await Promise.all(res.results.slice(0, 12).map((r) => r.data()));
+    if (my !== seq) return;
+    status.textContent = items.length ? `找到 ${res.results.length} 篇` : `找不到「${t}」相關的內容,換個說法試試看。`;
+    // excerpt 由 Pagefind 產生:內文已跳脫,只保留 <mark> 標出命中的字
+    list.innerHTML = items.map((d) => `
+      <li><a href="${esc(d.url)}">
+        <span class="search-k">${esc(d.meta.kind || '')}</span>
+        <span class="search-t">${esc(d.meta.title || d.url)}</span>
+        <span class="search-x">${tidy(d.excerpt)}</span>
+      </a></li>`).join('');
+  };
+
+  input.addEventListener('input', () => run(input.value, true));
+  document.getElementById('search-form').addEventListener('submit', (e) => { e.preventDefault(); run(input.value, true); });
+  const first = new URLSearchParams(location.search).get('q');
+  if (first) { input.value = first; run(first, false); }
+  input.focus();
+</script>
