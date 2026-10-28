@@ -1,0 +1,14 @@
+/* Giscus 留言區外觀(淺色):以官方淺色主題為底,改成網站的直角、無陰影與配色 */
+@import url('https://giscus.app/themes/light.css');
+main {
+  --color-canvas-default: #FAF8F3;
+  --color-canvas-subtle: #F1ECE2;
+  --color-border-default: #15171A;
+  --color-border-muted: #55524A;
+  --color-fg-default: #2A2B2E;
+  --color-fg-muted: #55524A;
+  --color-accent-fg: #BF3416;
+  --color-btn-primary-bg: #D6401E;
+  --color-btn-primary-hover-bg: #BF3416;
+}
+main * { border-radius: 0 !important; box-shadow: none !important; }
