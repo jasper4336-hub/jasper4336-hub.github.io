@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>這個網站是怎麼做的|Jasper 林禹丞</title><meta name="description" content="這個網站的設計與工程取捨:版面規則、內容管理、上線前的自動檢查、搜尋,以及手機版踩過的坑。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="這個網站是怎麼做的|Jasper 林禹丞"><meta property="og:description" content="這個網站的設計與工程取捨:版面規則、內容管理、上線前的自動檢查、搜尋,以及手機版踩過的坑。"><meta property="og:url" content="https://jasper4336-hub.github.io/behind/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og-home.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站:我做的學習工具,和做它們的過程。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/behind/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"><script>
+  // 先套用讀者上次選的字級,避免畫面跳動
+  try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
+  // 先套用讀者手動選的深淺色,沒選過就跟著系統
+  try { const th = localStorage.getItem('theme'); if (th === 'dark' || th === 'light') document.documentElement.dataset.theme = th; } catch (e) {}
+</script><link rel="stylesheet" href="/_astro/Base.DJX0mnIf.css"></head><body class="has-toc"><div class="wrap"><header class="site-head"><a class="logo" href="/">Jasper</a><nav class="site-nav" aria-label="主選單"><a href="/works/">作品</a><a href="/posts/">文章</a><a href="/series/">合集</a><a href="/search/">搜尋</a><a href="/#learn">學習</a><a href="/#about">關於</a><a href="/#contact">聯絡</a></nav></header><div class="readbar"><nav aria-label="本頁段落"><a href="#why">為什麼自己做</a><a href="#design">版面規則</a><a href="#content">內容怎麼管</a><a href="#checks">自動把關</a><a href="#reading">閱讀與搜尋</a><a href="#pitfalls">踩過的坑</a><a href="#ai">和 AI 分工</a></nav><div class="fs" role="group" aria-label="閱讀設定:字級與深淺色"><span>字級 <b id="fs-label">標準</b></span><button type="button" data-fs="-1" aria-label="字級縮小">A−</button><button type="button" data-fs="1" aria-label="字級放大">A+</button><button type="button" class="theme-btn" id="theme-btn" aria-label="切換深色模式" aria-pressed="false">深色</button></div></div><div style="padding: 14px 0; font-size: 13px; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--ink)"><a href="/" style="text-decoration: none; color: var(--muted)">首頁</a> / 網站幕後</div><div style="max-width: 760px; margin: 0 auto"><section style="padding: 44px 0 8px"><div class="kicker">BEHIND THIS SITE</div><h1 class="t1" data-pagefind-meta="title">這個網站是怎麼做的</h1><p class="lead">這一頁不是功能清單,而是每個做法背後的取捨:為什麼長這樣、怎麼確保不出錯,以及做的過程中踩過哪些坑。</p></section></div><div class="post-body"><aside class="toc" aria-label="本頁目錄"><div class="toc-in"><div class="kicker">目錄</div><ol><li><a href="#why">為什麼自己做</a></li><li><a href="#design">版面規則</a></li><li><a href="#content">內容怎麼管</a></li><li><a href="#checks">自動把關</a></li><li><a href="#reading">閱讀與搜尋</a></li><li><a href="#pitfalls">踩過的坑</a></li><li><a href="#ai">和 AI 分工</a></li></ol></div></aside><article class="prose" data-pagefind-body style="padding-top: 24px"><span hidden data-pagefind-meta="kind">網站幕後</span><h2 id="why">為什麼自己做,而不是用現成的平台</h2><p>部落格平台很方便,為什麼還要自己做?原因很簡單:我想要一個<b>完全照自己的方式整理</b>的地方。作品要有固定的四段(為什麼做、能做什麼、怎麼做出來、還不夠好的地方),文章要標出依據,課程筆記要能收成合集——這些規則,現成的平台很難照著走。</p><p>網站用 Astro 這套工具產生,建好之後是一包純 HTML 檔案,放在 GitHub Pages 上,不需要伺服器,也不用付費。原始碼另外備份在私人的 GitHub repo。就算哪天要換平台,這包檔案搬過去就能用。</p><h2 id="design">版面規則:直角、細線、不加陰影</h2><p>整個網站只用直角、細線和粗黑線分隔,不用圓角,也不加陰影。標題用襯線字,內文用黑體,強調色只有一種磚紅色。規則少,畫面才不會越做越雜。</p><p>規則寫在紙上容易忘,所以我讓程式來守:每次上線前,檢查程式會掃過所有網頁,只要出現圓角或陰影就停下來,不讓它上線。</p><div class="cards"><div class="card hl"><span class="k">字</span><b>標題襯線、內文黑體</b><p>讀者可以用 A− / A+ 調整字級,共四段。</p></div><div class="card"><span class="k">色</span><b>只有一種強調色</b><p>深色模式另外定義一組顏色,不是單純反白。</p></div><div class="card"><span class="k">線</span><b>粗線分區、細線分項</b><p>不用圓角和陰影,由檢查程式把關。</p></div></div><h2 id="content">內容怎麼管:先標依據,再談好不好看</h2><p>每篇文章都會標出依據:<b>實測</b>、<b>依官方資料整理</b>,或<b>個人看法</b>。讀者一眼就知道,這段話是我試過的、查來的,還是我自己的想法。</p><p>內容都用 Markdown 寫,每篇有一個不顯示在畫面上的編號(文章 P001 起、作品 W01 起),方便之後整理。還沒寫完的文章標成草稿,只在我自己的電腦上看得到,正式網站不會出現。文章的「類型」說它怎麼寫(作品介紹、應用、學習筆記、心得),「標籤」說它寫什麼主題,兩者分開,不重複。</p><h2 id="checks">自動把關:上線前的五道檢查</h2><p>網站越做越大,靠眼睛檢查一定會漏。所以每次上線前,部署程式會依序跑完這些檢查,任何一項沒過就停下來:</p><table><thead><tr><th>檢查</th><th>擋下什麼</th></tr></thead><tbody><tr><td>版面規則</td><td>圓角、陰影</td></tr><tr><td>個資</td><td>疑似學號、手機號碼、學校信箱,以及還沒查證完、留著標記的內容</td></tr><tr><td>連結</td><td>站內連結或圖片找不到檔案、同頁跳轉找不到對應段落</td></tr><tr><td>草稿</td><td>草稿被建置出來;沒有任何頁面用到的圖片(例如草稿的封面)也不公開</td></tr><tr><td>手機與平板版面</td><td>用無頭瀏覽器以 320 到 1280 像素的多種寬度打開每一頁,檢查有沒有內容超出畫面、圖片有沒有被壓扁</td></tr></tbody></table><p>最後一項是踩過坑才加上的,下面會說。</p><h2 id="reading">閱讀與搜尋:讓長文章讀得下去</h2><p>課程筆記一篇常常超過五千字,所以閱讀工具比裝飾重要。上方的段落列會跟著你讀到哪一段而標示;寬螢幕時,左側會出現固定的目錄。文章最後有上一篇、下一篇和「你可能也想讀」,合集裡的文章則接回合集頁。</p><p>站內搜尋用的是 Pagefind:網站建好時,順便把文章與作品的內文做成索引檔,一起放上網站。搜尋時在讀者的瀏覽器裡比對,不需要後端。中文斷詞後,摘要會在字和字之間多出空格,我在顯示前把它們拿掉,讀起來才自然。</p><h2 id="pitfalls">踩過的坑:手機上的三個問題</h2><p>網站在電腦上看起來都很好,用手機打開才發現問題。三個坑的原因不同,結果卻很像:畫面被撐寬或變形。</p><ol><li><b>表格把整頁撐寬。</b>文章欄位在格狀版面裡設了自動置中,寬度就改成「依內容決定」,一張寬表格就把整欄推出螢幕,手機只好把整頁縮小,右邊多出一條空白。改法是讓文章欄位明確填滿欄寬,表格自己左右捲動。</li><li><b>長網址沒有地方換行。</b>資料來源裡的網址沒有空格,瀏覽器找不到斷行的位置。改法是允許網址在任何位置換行。</li><li><b>圖片被壓扁。</b>圖片標了原始寬高,避免載入時畫面跳動;但縮到手機寬度時,只有寬度跟著縮,高度還是原本的數字。改法是讓高度跟著比例自動計算。</li></ol><p>修好之後,我把「多種寬度打開每一頁」寫成自動檢查,加進上線前的流程。同樣的錯,不應該靠讀者再發現一次。</p><h2 id="ai">和 AI 的分工:我決定,它動手,我驗收</h2><p>這個網站的程式,大部分是我和 Claude Code 一起寫的。分工很清楚:<b>要做什麼、怎麼取捨,由我決定</b>;它負責把想法變成程式碼;最後由我在真的網頁上打開、操作、確認。</p><p>為什麼一定要親自驗收?因為「程式說成功」和「網頁真的正常」是兩件事。這個網站每次上線,都會實際抓一次線上的頁面,確認新功能真的出現、草稿真的沒有外流,才算完成。</p><p class="cap">這一頁會跟著網站的做法一起更新。想聊聊網站怎麼做,歡迎<a href="/#contact">來信</a>。</p></article></div><footer class="site-foot"><span>© Jasper 林禹丞</span><span>vanyuc0316@gmail.com ・ <a href="https://www.instagram.com/vanyu.c/" style="color: inherit">IG @vanyu.c</a></span><span class="foot-row"><span>台南 · <time id="clock">臺灣時間</time></span><a href="#">回到頂部 ↑</a><a href="/behind/">網站幕後 →</a></span></footer></div><script>
+  (function () {
+    const scales = [0.9, 1, 1.15, 1.3];
+    const names = ['小', '標準', '大', '特大'];
+    const root = document.documentElement;
+    const label = document.getElementById('fs-label');
+    let i = scales.indexOf(parseFloat(getComputedStyle(root).getPropertyValue('--k')) || 1);
+    if (i < 0) i = 1;
+    const apply = () => {
+      root.style.setProperty('--k', String(scales[i]));
+      label.textContent = names[i];
+      try { localStorage.setItem('fs-k', String(scales[i])); } catch (e) {}
+    };
+    label.textContent = names[i];
+    document.querySelectorAll('[data-fs]').forEach((b) => b.addEventListener('click', () => {
+      i = Math.min(scales.length - 1, Math.max(0, i + Number(b.dataset.fs)));
+      apply();
+    }));
+
+    // 深淺色切換:按鈕顯示目前是不是深色;手動選過就記住
+    const tb = document.getElementById('theme-btn');
+    const isDark = () => root.dataset.theme === 'dark';
+    const show = () => tb.setAttribute('aria-pressed', String(isDark()));
+    show();
+    tb.addEventListener('click', () => {
+      root.dataset.theme = isDark() ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      show();
+    });
+    // 頁尾的臺灣時間,每分鐘更新
+    const clock = document.getElementById('clock');
+    const tick = () => { clock.textContent = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()); };
+    tick(); setInterval(tick, 30000);
+
+    // 段落跟隨:捲到哪一段,段落列與側欄目錄就標出哪一段
+    const links = [...document.querySelectorAll('.readbar nav a[href^="#"], .toc a[href^="#"]')];
+    const targets = [...new Set(links.map((a) => decodeURIComponent(a.hash.slice(1))))]
+      .map((id) => document.getElementById(id)).filter(Boolean);
+    if (targets.length) {
+      const bar = document.querySelector('.readbar nav');
+      let current = '';
+      // 讀者開啟「減少動態效果」時,段落列直接跳到位置,不做平滑捲動
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mark = () => {
+        // 最後一個已經捲過畫面上方 1/4 的段落,就是目前在讀的段落
+        const line = window.innerHeight * 0.25;
+        let id = '';
+        for (const t of targets) if (t.getBoundingClientRect().top <= line) id = t.id;
+        if (id === current) return;
+        current = id;
+        for (const a of links) {
+          const on = decodeURIComponent(a.hash.slice(1)) === id;
+          a.classList.toggle('on', on);
+          if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+          // 段落列是橫向捲動的,把目前段落捲進可見範圍(不動到整頁)
+          if (on && bar && bar.contains(a)) bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 3, behavior: still ? 'auto' : 'smooth' });
+        }
+      };
+      let ticking = false;
+      addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; mark(); }); } }, { passive: true });
+      addEventListener('resize', mark);
+      mark();
+    }
+  })();
+</script></body></html>
