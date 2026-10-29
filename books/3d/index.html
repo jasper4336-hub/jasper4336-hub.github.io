@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>書架・立體模式|Jasper 林禹丞</title><meta name="description" content="把書架上的書拿下來翻：書背朝外排在書櫃上，點一本可以轉動、翻開、翻頁。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="書架・立體模式|Jasper 林禹丞"><meta property="og:description" content="把書架上的書拿下來翻：書背朝外排在書櫃上，點一本可以轉動、翻開、翻頁。"><meta property="og:url" content="https://jasper4336-hub.github.io/books/3d/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og-home.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站：我做的學習工具，和做它們的過程。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/books/3d/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.7fb66ad6.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.f743b737.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.7fb66ad6.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.f743b737.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>書架・立體模式|Jasper 林禹丞</title><meta name="description" content="把書架上的書拿下來翻：書背朝外排在書櫃上，點一本可以轉動、翻開、翻頁。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="書架・立體模式|Jasper 林禹丞"><meta property="og:description" content="把書架上的書拿下來翻：書背朝外排在書櫃上，點一本可以轉動、翻開、翻頁。"><meta property="og:url" content="https://jasper4336-hub.github.io/books/3d/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og-home.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站：我做的學習工具，和做它們的過程。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/books/3d/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.59c0dd75.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.9d8e5dab.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.59c0dd75.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.9d8e5dab.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
   // 先套用讀者上次選的字級，避免畫面跳動
   try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
   // 先套用讀者手動選的深淺色，沒選過就跟著系統
@@ -273,13 +273,21 @@
     const p = S.open ? S.at * 2 + 1 : 0;
     pos.textContent = S.open ? `${p}／${S.pages.length}` : '';
   }
-  function place(extra = '') {
+  // 書的位置一律用同一種寫法（位移、縮放、X 軸、Y 軸），補間時瀏覽器才會逐項補，不會改用矩陣、繞遠路轉到背面
+  const tf = (x, y, k, rx, ry) => `translate3d(${x}px,${y}px,0) scale(${k}) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  const wrap = (a) => ((a % 360) + 540) % 360 - 180; // 角度收在 -180～180，轉再多圈也不會累積
+  function place() {
     const { W } = S;
+    if (!S.open) S.ry = wrap(S.ry);
     const tx = S.open ? (S.wide ? W / 2 : 0) : 0;
     const rx = S.open ? 0 : S.rx, ry = S.open ? 0 : S.ry;
-    holder.style.transform = `translate3d(${tx}px,0,0) rotateX(${rx}deg) rotateY(${ry}deg)${extra}`;
+    holder.style.transform = tf(tx, 0, 1, rx, ry);
     light(rx, ry);
   }
+  // 補間動畫：飛出、放回、翻開闔上都經過這裡。拖曳一開始就立刻結束動畫，不讓補間和手指搶位置
+  let animT = 0;
+  function animate(ms) { clearTimeout(animT); holder.classList.add('anim'); animT = setTimeout(endAnim, reduce ? 0 : ms); }
+  function endAnim() { clearTimeout(animT); holder.classList.remove('anim'); }
   // 光影：光從左上前方打過來，依書本轉到的角度算出每個面朝向光的程度，背光的面蓋一層暗色
   const LIGHT = (() => { const v = [-0.38, -0.5, 0.78], n = Math.hypot(...v); return v.map((x) => x / n); })();
   const NORMALS = { front: [0, 0, 1], back: [0, 0, -1], spine: [-1, 0, 0], fore: [1, 0, 0], top: [0, -1, 0], bot: [0, 1, 0] };
@@ -311,13 +319,12 @@
     // 從書架上的位置飛出來：先放在書背的位置、轉成書背朝前，再補間到中間
     const r = btn.getBoundingClientRect(), hc = holder.getBoundingClientRect();
     const dx = r.left + r.width / 2 - hc.left, dy = r.top + r.height / 2 - hc.top, k = (r.height / S.H);
-    holder.classList.remove('anim');
-    holder.style.transform = `translate3d(${dx}px,${dy}px,0) scale(${k}) rotateY(90deg)`;
+    endAnim();
+    holder.style.transform = tf(dx, dy, k, 0, 90);
     btn.classList.add('out');
     holder.getBoundingClientRect();
-    holder.classList.add('anim');
-    requestAnimationFrame(() => { stage.classList.add('show'); place(); });
-    setTimeout(() => holder.classList.remove('anim'), reduce ? 0 : 800);
+    animate(800);
+    requestAnimationFrame(() => { stage.classList.add('show'); if (current) place(); });
     bOpen.focus({ preventScroll: true });
   }
   function putBack() {
@@ -330,14 +337,16 @@
       const btn = live() || current.btn;
       const r = btn.getBoundingClientRect(), hc = holder.parentElement.getBoundingClientRect();
       const cx = hc.left + hc.width / 2, cy = hc.top + hc.height * 0.46;
-      holder.classList.add('anim');
-      holder.style.transform = `translate3d(${r.left + r.width / 2 - cx}px,${r.top + r.height / 2 - cy}px,0) scale(${r.height / S.H}) rotateY(90deg)`;
+      // 轉回書背朝前：取離目前角度最近的 90 度，不多轉一圈
+      const back = 90 + 360 * Math.round((S.ry - 90) / 360);
+      animate(800);
+      holder.style.transform = tf(r.left + r.width / 2 - cx, r.top + r.height / 2 - cy, r.height / S.H, 0, back);
       stage.classList.remove('show');
-      setTimeout(() => { stage.classList.remove('on'); holder.classList.remove('anim'); holder.innerHTML = ''; current = null; caseEl.querySelectorAll('.bk.out').forEach((x) => x.classList.remove('out')); live()?.focus({ preventScroll: true }); }, reduce ? 0 : 760);
+      setTimeout(() => { stage.classList.remove('on'); endAnim(); holder.innerHTML = ''; current = null; caseEl.querySelectorAll('.bk.out').forEach((x) => x.classList.remove('out')); live()?.focus({ preventScroll: true }); }, reduce ? 0 : 760);
     };
     setTimeout(go, reduce ? 0 : 380);
   }
-  function setOpen(v) { cancelAnimationFrame(spin); S.open = v; if (!v) S.at = 0; holder.classList.add('anim'); paint(); setTimeout(() => holder.classList.remove('anim'), 760); }
+  function setOpen(v) { cancelAnimationFrame(spin); S.open = v; if (!v) S.at = 0; animate(760); paint(); }
   function flip(d) {
     if (!S.open) { if (d > 0) setOpen(true); return; }
     const n = Math.max(0, Math.min(S.leaves - 1, S.at + d));
@@ -398,28 +407,42 @@
     spin = requestAnimationFrame(step);
   };
   let drag = null;
+  let frame = 0;
   holder.addEventListener('pointerdown', (e) => {
     if (!current) return;
     cancelAnimationFrame(spin);
-    drag = { x: e.clientX, y: e.clientY, rx: S.rx, ry: S.ry, moved: false, t: e.timeStamp, lx: e.clientX, lt: e.timeStamp, v: 0 };
+    if (!S.open) { endAnim(); place(); } // 書還在飛出來就直接到定位，從那裡開始轉
+    drag = { x: e.clientX, y: e.clientY, rx: S.rx, ry: S.ry, moved: false, t: e.timeStamp, lt: e.timeStamp, pts: [[e.timeStamp, e.clientX]], cx: e.clientX, cy: e.clientY };
     holder.setPointerCapture(e.pointerId); holder.classList.add('drag');
   });
   holder.addEventListener('pointermove', (e) => {
     if (!drag) return;
-    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
-    if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true;
-    const dt = e.timeStamp - drag.lt;
-    if (dt > 0) { drag.v = 0.7 * drag.v + 0.3 * ((e.clientX - drag.lx) * 0.5 / dt); drag.lx = e.clientX; drag.lt = e.timeStamp; }
-    if (!S.open) {
-      S.ry = drag.ry + dx * 0.5; S.rx = Math.max(-50, Math.min(50, drag.rx - dy * 0.35)); place();
-    }
+    drag.cx = e.clientX; drag.cy = e.clientY; drag.lt = e.timeStamp;
+    if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 4) drag.moved = true;
+    // 只留最近 100ms 的位置，放手時用來算速度
+    drag.pts.push([e.timeStamp, e.clientX]);
+    while (drag.pts.length > 2 && e.timeStamp - drag.pts[0][0] > 100) drag.pts.shift();
+    // 一個畫格只轉一次：手機一次送來好幾個移動事件時不會重複計算光影
+    if (!S.open && !frame) frame = requestAnimationFrame(() => {
+      frame = 0;
+      if (!drag || S.open) return;
+      S.ry = drag.ry + (drag.cx - drag.x) * 0.5; S.rx = Math.max(-50, Math.min(50, drag.rx - (drag.cy - drag.y) * 0.35)); place();
+    });
   });
+  // 放手時的速度（每毫秒幾度的一半），用最近 100ms 的平均，並設上限：手機卡一下後一次補上的大位移不會把書甩到背面
+  const speed = (d) => {
+    const [t0, x0] = d.pts[0], [t1, x1] = d.pts.at(-1);
+    if (t1 - t0 < 16) return 0;
+    return Math.max(-1.2, Math.min(1.2, (x1 - x0) * 0.5 / (t1 - t0)));
+  };
   const end = (e) => {
     if (!drag) return;
     const dx = e.clientX - drag.x;
     holder.classList.remove('drag');
+    // 還沒畫出來的最後一個位置先補上，慣性從手指放開的地方接著轉
+    if (frame) { cancelAnimationFrame(frame); frame = 0; if (!S.open) { S.ry = drag.ry + (drag.cx - drag.x) * 0.5; S.rx = Math.max(-50, Math.min(50, drag.rx - (drag.cy - drag.y) * 0.35)); place(); } }
     if (S.open && Math.abs(dx) > 40) flip(dx < 0 ? 1 : -1);
-    else if (!S.open && drag.moved && e.timeStamp - drag.lt < 80) coast(drag.v); // 放手前還在動才有慣性
+    else if (!S.open && drag.moved && e.timeStamp - drag.lt < 80) coast(speed(drag)); // 放手前還在動才有慣性
     else if (!drag.moved) { // 單純點一下：闔著就翻開；翻開時點右半邊下一頁、左半邊上一頁
       if (!S.open) setOpen(true);
       else { const hb = holder.getBoundingClientRect(); flip(e.clientX >= hb.left ? 1 : -1); }
