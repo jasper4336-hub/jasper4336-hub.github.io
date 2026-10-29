@@ -1,16 +1,26 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI 要多準才能用？資料素養與運算思維|Jasper 林禹丞</title><meta name="description" content="給老師的 AI 教育・單元 04。資料的品質怎麼影響 AI、不同用途要準到什麼程度，以及運算思維為什麼是一種學習能力，而不只是數位技能。"><meta name="jasper:id" content="P011"><meta property="og:type" content="article"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="AI 要多準才能用？資料素養與運算思維|Jasper 林禹丞"><meta property="og:description" content="給老師的 AI 教育・單元 04。資料的品質怎麼影響 AI、不同用途要準到什麼程度，以及運算思維為什麼是一種學習能力，而不只是數位技能。"><meta property="og:url" content="https://jasper4336-hub.github.io/posts/coursera-ai-teachers-04/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/cover-coursera-04.jpg"><meta property="og:image:alt" content="封面：AI 要多準才能用？給老師的 AI 教育合集，單元 04，副標：垃圾進、垃圾出，影響越大越要準。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/posts/coursera-ai-teachers-04/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.28dc4e25.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.7354e6c5.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.28dc4e25.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.7354e6c5.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>資料決定 AI 學到什麼：資料素養與運算思維|Jasper 林禹丞</title><meta name="description" content="給老師的 AI 教育・單元 04。資料的品質怎麼影響 AI、不同用途要準到什麼程度，以及運算思維為什麼是一種學習能力，而不只是數位技能。"><meta name="jasper:id" content="P011"><meta property="og:type" content="article"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="資料決定 AI 學到什麼：資料素養與運算思維|Jasper 林禹丞"><meta property="og:description" content="給老師的 AI 教育・單元 04。資料的品質怎麼影響 AI、不同用途要準到什麼程度，以及運算思維為什麼是一種學習能力，而不只是數位技能。"><meta property="og:url" content="https://jasper4336-hub.github.io/posts/coursera-ai-teachers-04/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/cover-coursera-04.jpg"><meta property="og:image:alt" content="封面：資料決定 AI 學到什麼。給老師的 AI 教育合集，單元 04，副標：垃圾進、垃圾出，影響越大越要準。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/posts/coursera-ai-teachers-04/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.2b848df6.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.50c27ac5.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.2b848df6.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.50c27ac5.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
   // 先套用讀者上次選的字級，避免畫面跳動
   try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
   // 先套用讀者手動選的深淺色，沒選過就跟著系統
   try { const th = localStorage.getItem('theme'); if (th === 'dark' || th === 'light') document.documentElement.dataset.theme = th; } catch (e) {}
-</script><link rel="stylesheet" href="/_astro/Base.CuC32t1u.css"></head><body class="has-toc"><div class="wrap"><header class="site-head"><a class="logo" href="/">Jasper</a><nav class="site-nav" aria-label="主選單"><a href="/works/">作品</a><a href="/posts/" aria-current="page">文章</a><a href="/series/">合集</a><a href="/search/">搜尋</a><a href="/#learn">學習</a><a href="/#about">關於</a><a href="/tutoring/">家教</a><a href="/#contact">聯絡</a></nav></header><div class="readbar"><nav aria-label="本頁段落"><a href="#垃圾進垃圾出gigo">垃圾進、垃圾出(GIGO)</a><a href="#ai-要多準才能用">AI 要多準才能用</a><a href="#同一套技術從望遠鏡用到海灘">同一套技術，從望遠鏡用到海灘</a><a href="#語言的模糊和像電腦一樣思考">語言的模糊，和「像電腦一樣思考」</a><a href="#運算思維為什麼屬於學習與創新">運算思維為什麼屬於學習與創新</a><a href="#資料來源">資料來源</a></nav><div class="fs" role="group" aria-label="閱讀設定：字級與深淺色"><span>字級 <b id="fs-label">標準</b></span><button type="button" data-fs="-1" aria-label="字級縮小">A−</button><button type="button" data-fs="1" aria-label="字級放大">A+</button><button type="button" class="theme-btn" id="theme-btn" aria-label="切換深色模式" aria-pressed="false">深色</button><a class="cta-btn" href="/#contact">聯絡</a></div></div><div style="padding: 14px 0; font-size: 13px; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--ink)"><a href="/posts/" style="text-decoration: none; color: var(--muted)">文章</a> / 學習筆記</div><div style="max-width: 760px; margin: 0 auto"><section style="padding: 44px 0 24px"><div class="tags"><span class="tag solid">學習筆記</span><span class="tag">依官方資料整理</span></div><div class="post-tags" aria-label="標籤"><a href="/posts/?tag=AI%20%E6%95%99%E8%82%B2">#AI 教育</a><a href="/posts/?tag=%E8%B3%87%E6%96%99%E7%B4%A0%E9%A4%8A">#資料素養</a></div><a href="/series/coursera-ai-education-for-teachers/" style="display: inline-block; margin-bottom: 12px; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--accent-ink); text-decoration: none">合集・給老師的 AI 教育(Coursera)・單元 04 →</a><h1 class="t1" data-pagefind-meta="title">AI 要多準才能用？資料素養與運算思維</h1><p class="lead">給老師的 AI 教育・單元 04。資料的品質怎麼影響 AI、不同用途要準到什麼程度，以及運算思維為什麼是一種學習能力，而不只是數位技能。</p><div style="margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; font-size: 14px; color: var(--muted)"><span style="display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 700"><img src="/images/avatar.jpg" alt="" width="36" height="36" style="object-fit: cover; border: 1px solid var(--ink)">Jasper 林禹丞</span><time datetime="2026-10-28T11:51:00.000Z">發佈 2026-10-28 19:51</time><span>閱讀約 10 分鐘</span><span data-views hidden></span></div></section><figure style="margin: 0"><img src="/images/cover-coursera-04.jpg" alt="封面：AI 要多準才能用？給老師的 AI 教育合集，單元 04，副標：垃圾進、垃圾出，影響越大越要準。" data-pagefind-meta="image[src]" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; border: 1px solid var(--ink)"><figcaption>圖：給老師的 AI 教育合集・單元 04。來源：作者自製封面。</figcaption></figure></div><div class="post-body"><aside class="toc" aria-label="文章目錄"><div class="toc-in"><div class="kicker">目錄</div><ol><li><a href="#垃圾進垃圾出gigo">垃圾進、垃圾出(GIGO)</a></li><li><a href="#ai-要多準才能用">AI 要多準才能用</a></li><li><a href="#同一套技術從望遠鏡用到海灘">同一套技術，從望遠鏡用到海灘</a></li><li><a href="#語言的模糊和像電腦一樣思考">語言的模糊，和「像電腦一樣思考」</a></li><li><a href="#運算思維為什麼屬於學習與創新">運算思維為什麼屬於學習與創新</a></li><li><a href="#資料來源">資料來源</a></li></ol></div></aside><article class="prose steps" data-id="P011" data-pagefind-body style="padding-top: 24px"><span hidden data-pagefind-meta="kind">學習筆記</span><div class="box">
+</script><link rel="stylesheet" href="/_astro/Base.BdAcwb_i.css"></head><body class="has-toc"><div class="wrap"><header class="site-head"><a class="logo" href="/">Jasper</a><nav class="site-nav" aria-label="主選單"><a href="/works/">作品</a><a href="/posts/" aria-current="page">文章</a><a href="/series/">合集</a><a href="/search/">搜尋</a><a href="/#learn">學習</a><a href="/#about">關於</a><a href="/tutoring/">家教</a><a href="/#contact">聯絡</a></nav></header><div class="readbar"><nav aria-label="本頁段落"><a href="#資料素養像說外語一樣流利">資料素養：像說外語一樣流利</a><a href="#垃圾進垃圾出gigo">垃圾進、垃圾出(GIGO)</a><a href="#準確度要看出錯的代價">準確度，要看出錯的代價</a><a href="#同一套技術從望遠鏡用到海灘">同一套技術，從望遠鏡用到海灘</a><a href="#語言的模糊和像電腦一樣思考">語言的模糊，和「像電腦一樣思考」</a><a href="#運算思維為什麼屬於學習與創新">運算思維為什麼屬於學習與創新</a><a href="#資料來源">資料來源</a></nav><div class="fs" role="group" aria-label="閱讀設定：字級與深淺色"><span>字級 <b id="fs-label">標準</b></span><button type="button" data-fs="-1" aria-label="字級縮小">A−</button><button type="button" data-fs="1" aria-label="字級放大">A+</button><button type="button" class="theme-btn" id="theme-btn" aria-label="切換深色模式" aria-pressed="false">深色</button><a class="cta-btn" href="/#contact">聯絡</a></div></div><div style="padding: 14px 0; font-size: 13px; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--ink)"><a href="/posts/" style="text-decoration: none; color: var(--muted)">文章</a> / 學習筆記</div><div style="max-width: 760px; margin: 0 auto"><section style="padding: 44px 0 24px"><div class="tags"><span class="tag solid">學習筆記</span><span class="tag">依官方資料整理</span></div><div class="post-tags" aria-label="標籤"><a href="/posts/?tag=AI%20%E6%95%99%E8%82%B2">#AI 教育</a><a href="/posts/?tag=%E8%B3%87%E6%96%99%E7%B4%A0%E9%A4%8A">#資料素養</a></div><a href="/series/coursera-ai-education-for-teachers/" style="display: inline-block; margin-bottom: 12px; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--accent-ink); text-decoration: none">合集・給老師的 AI 教育(Coursera)・單元 04 →</a><h1 class="t1" data-pagefind-meta="title">資料決定 AI 學到什麼：資料素養與運算思維</h1><p class="lead">給老師的 AI 教育・單元 04。資料的品質怎麼影響 AI、不同用途要準到什麼程度，以及運算思維為什麼是一種學習能力，而不只是數位技能。</p><div style="margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; font-size: 14px; color: var(--muted)"><span style="display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 700"><img src="/images/avatar.jpg" alt="" width="36" height="36" style="object-fit: cover; border: 1px solid var(--ink)">Jasper 林禹丞</span><time datetime="2026-10-28T11:51:00.000Z">發佈 2026-10-28 19:51</time><span>閱讀約 15 分鐘</span><span data-views hidden></span></div></section><figure style="margin: 0"><img src="/images/cover-coursera-04.jpg" alt="封面：資料決定 AI 學到什麼。給老師的 AI 教育合集，單元 04，副標：垃圾進、垃圾出，影響越大越要準。" data-pagefind-meta="image[src]" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; border: 1px solid var(--ink)"><figcaption>圖：給老師的 AI 教育合集・單元 04。來源：作者自製封面。</figcaption></figure></div><div class="post-body"><aside class="toc" aria-label="文章目錄"><div class="toc-in"><div class="kicker">目錄</div><ol><li><a href="#資料素養像說外語一樣流利">資料素養：像說外語一樣流利</a></li><li><a href="#垃圾進垃圾出gigo">垃圾進、垃圾出(GIGO)</a></li><li><a href="#準確度要看出錯的代價">準確度，要看出錯的代價</a></li><li><a href="#同一套技術從望遠鏡用到海灘">同一套技術，從望遠鏡用到海灘</a></li><li><a href="#語言的模糊和像電腦一樣思考">語言的模糊，和「像電腦一樣思考」</a></li><li><a href="#運算思維為什麼屬於學習與創新">運算思維為什麼屬於學習與創新</a></li><li><a href="#資料來源">資料來源</a></li></ol></div></aside><article class="prose steps" data-id="P011" data-pagefind-body style="padding-top: 24px"><span hidden data-pagefind-meta="kind">學習筆記</span><div class="box">
 <p><b>這篇在講</b></p>
-<p><a href="#垃圾進垃圾出gigo">1. 垃圾進、垃圾出(GIGO)</a><br><a href="#ai-要多準才能用">2. AI 要多準才能用</a><br><a href="#同一套技術從望遠鏡用到海灘">3. 同一套技術，從望遠鏡用到海灘</a><br><a href="#語言的模糊和像電腦一樣思考">4. 語言的模糊，和「像電腦一樣思考」</a><br><a href="#運算思維為什麼屬於學習與創新">5. 運算思維為什麼屬於學習與創新</a></p>
+<p><a href="#資料素養像說外語一樣流利">1. 資料素養：像說外語一樣流利</a><br><a href="#垃圾進垃圾出gigo">2. 垃圾進、垃圾出(GIGO)</a><br><a href="#準確度要看出錯的代價">3. 準確度，要看出錯的代價</a><br><a href="#同一套技術從望遠鏡用到海灘">4. 同一套技術，從望遠鏡用到海灘</a><br><a href="#語言的模糊和像電腦一樣思考">5. 語言的模糊，和「像電腦一樣思考」</a><br><a href="#運算思維為什麼屬於學習與創新">6. 運算思維為什麼屬於學習與創新</a></p>
 </div>
 <p>上一篇談到，AI 生成的內容一旦回流成訓練資料，資訊就可能被污染。這其實點出了一個更基本的事實：AI 的一切，都建立在資料之上。資料決定了 AI 學到什麼，也決定了它會錯在哪裡。</p>
-<p>所以這一篇從資料談起：資料不好會怎樣？AI 要準到什麼程度才能放心使用？接著，再從資料走向思考的方法，談語言的精確，以及運算思維。</p>
+<p>所以這一篇從資料談起：資料是什麼？資料不好會怎樣？AI 要準到什麼程度才能放心使用？接著，再從資料走向思考的方法，談語言的精確，以及運算思維。</p>
+<h2 id="資料素養像說外語一樣流利">資料素養：像說外語一樣流利</h2>
+<p>我們說一個人日語很流利，意思是他能快速、準確地讓別人懂他，也聽得懂別人。資料素養（data fluency）也是一樣：澳洲蒙納許大學的定義是，懂得用有意義的方式使用、探索、解讀和呈現資料，並把自己的研究和想法有效地說給別人聽。</p>
+<p>那「資料」又是什麼？資料是數字、字元或其他符號的集合；<b>它本身沒有意義，也沒有背景，要經過處理和分析，才會變成資訊。</b>所以，「我有數據」不等於「我是對的」：資料的品質，以及分析方法適不適合拿來下這個結論，才是做出好決定的關鍵。</p>
+<p>澳洲新南威爾斯州的數學課綱還特別要學生分清楚兩種資料：</p>
+<figure class="cards"><div class="card"><span class="k">一手資料</span><b>自己蒐集的</b><p>在超市門口攔下顧客，問「您今天買了這個新產品嗎？」，直接記下回答</p></div><div class="card"><span class="k">二手資料</span><b>別人蒐集的</b><p>拿所有分店的結帳紀錄，算出有多少人買了這個產品；網路資料集、書籍、論文也是</p></div><figcaption>圖：一手資料與二手資料。例子出自課程。</figcaption></figure>
 <h2 id="垃圾進垃圾出gigo">垃圾進、垃圾出(GIGO)</h2>
 <p>資料素養的第一課，是電腦科學裡的一句老話：「垃圾進、垃圾出」（Garbage In, Garbage Out，簡稱 GIGO）。意思是：輸入的資料如果有問題，不管模型多先進，輸出的結果都不會可靠。</p>
+<p>這個道理比電腦還老。十九世紀設計出第一台機械式計算機的英國數學家 Charles Babbage 曾經抱怨，有人問他：「如果把錯的數字放進機器，會得出正確的答案嗎？」他說自己完全無法理解，是什麼樣的思想混亂，才會問出這種問題。課程也舉了一個現代版：一家服飾公司想自動寄生日祝福給顧客，程式從資料庫裡抓到的卻是身高和鞋子尺寸，而不是生日，服務才剛上線就以失敗收場。</p>
+<div class="pair crop">
+<figure><img src="/images/fig-babbage.jpg" alt="Charles Babbage 的黑白肖像照" width="500" height="592" loading="lazy"><figcaption>Charles Babbage，1860 年。來源：Wikimedia Commons，公有領域。</figcaption></figure>
+<figure><img src="/images/fig-difference-engine.jpg" alt="由黃銅齒輪和數字輪組成的差分機，一整排直立的轉軸" width="640" height="799" loading="lazy"><figcaption>Babbage 一號差分機的部分模型，倫敦科學博物館藏。來源：Marcin Wichary 攝，Wikimedia Commons，CC BY 2.0。</figcaption></figure>
+</div>
 <table>
 <thead>
 <tr>
@@ -43,8 +53,14 @@
 </tbody>
 </table>
 <p class="cap">表：常見的資料問題與後果。作者整理。</p>
+<p>判斷資料好不好，有兩個基本的標準：信度和效度。課程用一杯咖啡來說明：假設有兩個感測器，同時測量每杯咖啡加了多少牛奶。</p>
+<figure class="cards"><div class="card"><span class="k">信度</span><b>量得穩不穩</b><p>兩個感測器的讀數接近，同一杯重複量也差不多，就是有信度</p></div><div class="card hl"><span class="k">效度</span><b>量的是不是對的東西</b><p>如果感測器其實量的是咖啡「看起來多白」，數字再一致，也不等於牛奶的量</p></div><figcaption>圖：信度與效度。例子出自課程。</figcaption></figure>
+<p>兩者的關係是：<b>沒有信度，就談不上效度；但有信度，不保證有效度。</b></p>
+<p>就算資料又準又一致，有些問題本來就沒有完美的答案。課程出了一道題：只給五隻動物的身高、體長和體重，猜猜哪些是貓、哪些是狗？大型的牧牛犬和米格魯不難猜，但吉娃娃很容易被當成貓，而體型大的貓，數字也可能和小型狗差不多。不管是人還是機器，只靠這幾個數字，都不可能每次都分對。</p>
+<p>一個機器學習專案，就是在這樣的限制下一圈圈改進：</p>
+<figure class="flow"><div class="node">蒐集資料</div><div class="to">↓</div><div class="node">準備、整理資料<small>清理錯誤、補缺漏、轉成模型能讀的格式</small></div><div class="to">↓</div><div class="node fill">訓練模型<small>例：告訴模型 25 張照片中，哪些是貓、哪些是狗</small></div><div class="to">↓</div><div class="node fill">測試模型<small>拿模型沒看過的照片，檢查它答對多少</small></div><div class="to">↓</div><div class="node hl">部署<small>小範圍試用成功後才上線；不夠準就回到前面，改資料或調參數</small></div><figcaption>圖：機器學習專案的流程。依課程整理，實際上是反覆循環。</figcaption></figure>
 <p>這件事最好親手體驗。用 Machine Learning for Kids（一個讓孩子不必寫程式就能訓練模型的免費網站）【1】，拿貓和狗的照片訓練一個分類模型，再故意減少照片、或只放某一種毛色的狗，就能直接看到結果變得多不可靠。</p>
-<h2 id="ai-要多準才能用">AI 要多準才能用</h2>
+<h2 id="準確度要看出錯的代價">準確度，要看出錯的代價</h2>
 <p>資料不可能完美，所以 AI 也不可能百分之百準確。真正要問的是：要準到什麼程度，才能接受？</p>
 <p>這裡用五種應用來想：書店推薦書、電話自動總機、抄襲比對、癌症診斷和自動駕駛。判斷時看兩件事：<b>出錯時影響有多大，以及會不會直接影響到人。</b></p>
 <figure class="fig"><svg viewBox="0 0 384 300" role="img" aria-label="準確度要求示意圖：橫軸是出錯時的影響，縱軸是越直接影響到人。書店推薦與電話總機在左下，抄襲比對在右下，癌症診斷與自動駕駛在右上，需要最高準確度與人工把關"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="t-ink"/></marker></defs><rect x="206.0" y="8" width="172.0" height="122.0" class="f-row"/><line x1="206.0" y1="8" x2="206.0" y2="252" class="s-muted" stroke-width="0.8" stroke-dasharray="4 4"/><line x1="34" y1="130.0" x2="378" y2="130.0" class="s-muted" stroke-width="0.8" stroke-dasharray="4 4"/><rect x="34" y="8" width="344" height="244" class="s-ink" stroke-width="1"/><line x1="34" y1="268" x2="378" y2="268" class="s-ink" stroke-width="1.5" marker-end="url(#ah)"/><text x="206.0" y="290" font-size="14" text-anchor="middle" font-weight="400" class="t-muted">出錯時的影響 → 越大</text><line x1="18" y1="252" x2="18" y2="10" class="s-ink" stroke-width="1.5" marker-end="url(#ah)"/><text x="10" y="130.0" font-size="14" text-anchor="middle" class="t-muted" transform="rotate(-90 10 130.0)">越直接影響到人 →</text><circle cx="56" cy="226" r="8" class="s-ink" stroke-width="1.5"/><text x="68" y="231" font-size="15" text-anchor="start" font-weight="400" class="t-ink">書店推薦書</text><circle cx="74" cy="168" r="8" class="s-ink" stroke-width="1.5"/><text x="86" y="173" font-size="15" text-anchor="start" font-weight="400" class="t-ink">電話自動總機</text><circle cx="226" cy="200" r="8" class="s-ink" stroke-width="1.5"/><text x="238" y="205" font-size="15" text-anchor="start" font-weight="400" class="t-ink">抄襲比對</text><circle cx="330" cy="84" r="8" class="f-acc" stroke-width="1.5"/><text x="318" y="89" font-size="15" text-anchor="end" font-weight="700" class="t-ink">癌症診斷</text><circle cx="356" cy="36" r="8" class="f-acc" stroke-width="1.5"/><text x="344" y="41" font-size="15" text-anchor="end" font-weight="700" class="t-ink">自動駕駛</text><text x="370" y="116" font-size="13" text-anchor="end" font-weight="700" class="t-acc">最高準確度+人工把關</text></svg><figcaption>圖：五種 AI 應用的相對位置（示意）。越往右上，準確度要求越高，也越需要人把關。來源：作者依本文原則繪製。</figcaption></figure>
@@ -180,47 +196,58 @@
 <p>而在上對下交代任務時，指令最需要沒有歧義。練習「像電腦一樣思考」，就是練習把話說清楚、把步驟想清楚，讓學生思考時更有系統性、脈絡性——不盲目，也不躁進。</p>
 <h2 id="運算思維為什麼屬於學習與創新">運算思維為什麼屬於學習與創新</h2>
 <p>「像電腦一樣思考」，有一個更正式的名字：運算思維(computational thinking)。</p>
-<p>這個詞最早可以追溯到美國麻省理工學院(MIT)的數學家與教育家 Seymour Papert。他在 1980 年的著作《Mindstorms》中，描述了孩子如何透過寫程式學會思考【3】。2006 年，美國電腦科學家 Jeannette Wing（當時是卡內基美隆大學電腦科學系主任）發表了一篇短文，主張運算思維不只是電腦科學家的專業，而是每個人都該具備的基本能力，就像讀、寫、算一樣，這個概念從此廣為人知【4】。</p>
-<p>運算思維應該放在「學習與創新」之下，而不是只被當成數位素養的一部分。因為計算思維是達到學習和創新的必備能力：</p>
+<p>這個詞最早可以追溯到美國麻省理工學院(MIT)的數學家與教育家 Seymour Papert。早在個人電腦普及之前的 1960 年代，他就開發了給孩子用的程式語言 Logo，讓孩子下指令指揮一隻小「烏龜」移動畫圖；他在 1980 年的著作《Mindstorms》中，描述了孩子如何透過寫程式學會思考【3】。2006 年，美國電腦科學家 Jeannette Wing（當時是卡內基美隆大學電腦科學系主任）發表了一篇短文，主張運算思維不只是電腦科學家的專業，而是每個人都該具備的基本能力，就像讀、寫、算一樣，這個概念從此廣為人知【4】。</p>
+<div class="pair crop">
+<figure><img src="/images/fig-papert.jpg" alt="Seymour Papert 的照片，留著灰白鬍子" width="500" height="690" loading="lazy"><figcaption>Seymour Papert。來源：Matematicamente.it 攝，Wikimedia Commons，CC BY-SA 3.0。</figcaption></figure>
+<figure><img src="/images/fig-wing.jpg" alt="Jeannette Wing 在達佛斯論壇的座談會上發言" width="640" height="578" loading="lazy"><figcaption>Jeannette Wing，2013 年世界經濟論壇。來源：World Economic Forum，Wikimedia Commons，CC BY-SA 2.0。</figcaption></figure>
+</div>
+<figure><img src="/images/fig-logo-turtle.jpg" alt="一台圓形的地板機器人「烏龜」，中間插著一支筆，在紙上畫出線條" width="845" height="623" loading="lazy"><figcaption>圖：Logo 的「烏龜」也有實體版。這台 1983 年推出的 Valiant Turtle 插著一支筆，照指令移動，在紙上留下軌跡。來源：Valiant Technology Ltd.，Wikimedia Commons，CC BY-SA 3.0。</figcaption></figure>
+<p>它的定義可以很簡潔。澳洲新南威爾斯州的科學與科技課綱這樣寫：運算思維是一種解決問題的方法，要<b>找出問題，並把解法表達成人、機器或電腦都能有效執行的形式</b>；常用的技巧包括有邏輯地整理資料，以及把問題拆成幾個部分。</p>
+<p>Wing 在一次訪談中用做菜來解釋：要同時煮好幾道菜、讓它們一起上桌，就得安排順序、拆解步驟、預先準備。運算思維不是新的能力，我們每天都在用；給它一個名字，是為了讓我們更清楚它是什麼，也更知道怎麼教。</p>
+<p>英國電腦學會(BCS)支持的 Barefoot Computing 計畫，把運算思維拆成「六個概念」和「五種做法」【5】。概念說的是「想什麼」：</p>
+<figure class="cards"><div class="card"><span class="k">概念 1</span><b>邏輯</b><p>根據已知推出結論。例：今天週三，社團在週三，所以今天要去社團</p></div><div class="card"><span class="k">概念 2</span><b>演算法</b><p>把做法寫成一步一步的清楚指令。例：一份食譜</p></div><div class="card"><span class="k">概念 3</span><b>分解</b><p>把大問題拆成小問題。例：把期末報告拆成找資料、寫大綱、寫內文</p></div><div class="card"><span class="k">概念 4</span><b>模式</b><p>找出重複出現的規律，拿來重複利用。例：發現每次考不好都是因為前一晚熬夜</p></div><div class="card"><span class="k">概念 5</span><b>抽象</b><p>抓住重點，略去不重要的細節。例：捷運路線圖只留站名和轉乘</p></div><div class="card hl"><span class="k">概念 6</span><b>評估</b><p>檢查解法好不好、能不能更好。例：考完試檢討錯題，調整讀書方法</p></div><figcaption>圖：運算思維的六個概念。分類依 Barefoot Computing，生活例子為作者補充。</figcaption></figure>
+<p>做法說的是「怎麼做」，也就是學生在動手時該養成的習慣：</p>
+<figure class="flow"><div class="split"><div class="node">修補<small>先動手試，邊玩邊摸索</small></div><div class="node">創造<small>做出自己的作品</small></div></div><div class="to">↓</div><div class="split"><div class="node">除錯<small>找出哪裡錯，修好它</small></div><div class="node">堅持<small>卡關了不放棄</small></div></div><div class="to">↓</div><div class="node hl">合作<small>和別人一起想、一起做</small></div><figcaption>圖：運算思維的五種做法。依 Barefoot Computing 整理。</figcaption></figure>
+<p>課程把運算思維放在「學習與創新」之下，而不是只當成數位素養的一部分。理由很清楚：運算思維是達到學習和創新的必備能力。分解、抽象、評估，再加上計算和模擬，都是把問題拆解、消化、理解之後再吸收的必要過程和手段。比起純粹憑藉個人資質和天賦去認識世界、理解問題，運算思維更像是一套有具體路徑的方法，任何人都能學會。</p>
+<p>它和數位素養的關係，也可以這樣理解：要有數位素養，不見得要具備運算思維；但要達到<b>良好的</b>數位素養，具備良好的運算思維是不可或缺的。</p>
+<p>要教運算思維，不一定要先有電腦。課程推薦了兩類活動：</p>
 <table>
 <thead>
 <tr>
-<th>能力</th>
-<th>意思</th>
-<th>生活中的例子</th>
+<th>類型</th>
+<th>活動</th>
+<th>適合</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>分解</td>
-<td>把大問題拆成小問題</td>
-<td>把期末報告拆成找資料、寫大綱、寫內文</td>
+<td>不插電</td>
+<td>澳洲 Digital Technologies Hub 的「Dare to be square」：學生寫下一串步驟讓同學照著畫，再檢查結果對不對【6】</td>
+<td>剛開始學演算法的國小學生</td>
 </tr>
 <tr>
-<td>抽象</td>
-<td>抓住重點，忽略不重要的細節</td>
-<td>畫捷運路線圖，只留站名和轉乘</td>
+<td>不插電</td>
+<td>英國電腦科教師組織 Computing At School 的運算思維手冊，依年齡設計了練習各個概念的活動</td>
+<td>各年齡</td>
 </tr>
 <tr>
-<td>計算</td>
-<td>依照規則，一步步得出結果</td>
-<td>算出每週要存多少錢才能達成目標</td>
+<td>用裝置</td>
+<td>Lightbot：用指令讓機器人點亮格子，練習順序、程序、迴圈和條件【7】</td>
+<td>初學寫程式的人</td>
 </tr>
 <tr>
-<td>模擬</td>
-<td>在做之前，先推演可能的結果</td>
-<td>出門前想好下雨時的備案</td>
+<td>用裝置</td>
+<td>ScratchJr／Scratch：用積木拼出互動故事和遊戲，由 Papert 曾任教的 MIT 參與開發【8】</td>
+<td>ScratchJr 適合 5–7 歲，Scratch 適合更大的學生</td>
 </tr>
 <tr>
-<td>評估</td>
-<td>檢查結果，再回頭修正</td>
-<td>考完試檢討錯題，調整讀書方法</td>
+<td>用裝置</td>
+<td>Machine Learning for Kids：用遊戲和互動專案訓練簡單的機器學習模型【1】</td>
+<td>國小高年級以上</td>
 </tr>
 </tbody>
 </table>
-<p class="cap">表：運算思維的五種能力。作者整理。</p>
-<p>這些能力，都是把問題拆解、消化、理解之後再吸收的必要過程和手段。比起純粹憑藉個人資質和天賦去認識世界、理解問題，運算思維更像是一套有具體路徑的方法，任何人都能學會。</p>
-<p>它和數位素養的關係，也可以這樣理解：要有數位素養，不見得要具備運算思維；但要達到<b>良好的</b>數位素養，具備良好的運算思維是不可或缺的。</p>
+<p class="cap">表：教運算思維的活動。依課程整理。</p>
 <p>從資料、準確度、語言，到運算思維，這個單元談的其實都是同一件事：AI 再強，也需要人把問題想清楚、說清楚。下一篇，會進入這門課最需要謹慎的主題——AI 的倫理與偏誤。</p>
 <h2 id="資料來源">資料來源</h2>
 <ol>
@@ -228,8 +255,13 @@
 <li>Abràmoff, M. D., et al. (2018). Pivotal trial of an autonomous AI-based diagnostic system for detection of diabetic retinopathy in primary care offices. <em>npj Digital Medicine, 1</em>, 39. <a href="https://doi.org/10.1038/s41746-018-0040-6">https://doi.org/10.1038/s41746-018-0040-6</a></li>
 <li>Papert, S. (1980). <em>Mindstorms: Children, Computers, and Powerful Ideas</em>. Basic Books.</li>
 <li>Wing, J. M. (2006). Computational thinking. <em>Communications of the ACM, 49</em>(3), 33–35. <a href="https://doi.org/10.1145/1118178.1118215">https://doi.org/10.1145/1118178.1118215</a></li>
+<li>Barefoot Computing（英國電腦學會 BCS）. Computational thinking concepts and approaches. <a href="https://www.barefootcomputing.org/">https://www.barefootcomputing.org/</a></li>
+<li>Digital Technologies Hub（澳洲）. <a href="https://www.digitaltechnologieshub.edu.au/">https://www.digitaltechnologieshub.edu.au/</a></li>
+<li>Lightbot. <a href="https://lightbot.com/">https://lightbot.com/</a></li>
+<li>ScratchJr. <a href="https://www.scratchjr.org/">https://www.scratchjr.org/</a> ；Scratch. <a href="https://scratch.mit.edu/">https://scratch.mit.edu/</a></li>
+<li>配圖：<a href="https://commons.wikimedia.org/wiki/File:Charles_Babbage_1860.jpg">Charles Babbage</a>（公有領域）、<a href="https://commons.wikimedia.org/wiki/File:Charles_Babbage_Difference_Engine_No1.jpg">差分機</a>（Marcin Wichary，CC BY 2.0）、<a href="https://commons.wikimedia.org/wiki/File:Seymour_Papert.jpg">Seymour Papert</a>（Matematicamente.it，CC BY-SA 3.0）、<a href="https://commons.wikimedia.org/wiki/File:Jeannette_Wing,_Davos_2013.jpg">Jeannette Wing</a>（World Economic Forum，CC BY-SA 2.0）、<a href="https://commons.wikimedia.org/wiki/File:Turtle_draw.jpg">Valiant Turtle</a>（Valiant Technology Ltd.，CC BY-SA 3.0），皆取自 Wikimedia Commons。</li>
 </ol>
-</article></div><a class="series-foot" href="/series/coursera-ai-education-for-teachers/"><span class="kicker">這篇屬於合集</span><span class="series-foot-title">給老師的 AI 教育(Coursera)</span><span class="series-foot-meta">單元 04 / 共 6 單元・看全部單元 →</span></a><nav class="pager" aria-label="合集裡的上一篇與下一篇"><a href="/posts/coursera-ai-teachers-03/"><span class="pager-k">← 上一單元</span><span class="pager-t">資訊不再只由人產生：AI 時代為什麼更需要批判性思考</span></a></nav><section class="comments" aria-labelledby="comments-h"><h2 id="comments-h" class="kicker">留言</h2><p class="comments-note">用 GitHub 帳號留言；留言會公開在網站的 GitHub 討論區。</p><div class="giscus"></div><script>(function(){const c = {"repo":"jasper4336-hub/jasper4336-hub.github.io","repoId":"R_kgDOVZ7zZA","category":"Announcements","categoryId":"DIC_kwDOVZ7zZM4DJ2gk"};
+</article></div><a class="series-foot" href="/series/coursera-ai-education-for-teachers/"><span class="kicker">這篇屬於合集</span><span class="series-foot-title">給老師的 AI 教育(Coursera)</span><span class="series-foot-meta">單元 04 / 共 6 單元・看全部單元 →</span></a><nav class="pager" aria-label="合集裡的上一篇與下一篇"><a href="/posts/coursera-ai-teachers-03/"><span class="pager-k">← 上一單元</span><span class="pager-t">資訊不再只由人產生：AI 時代為什麼更需要批判性思考</span></a><a class="pager-next" href="/posts/coursera-ai-teachers-05/"><span class="pager-k">下一單元 →</span><span class="pager-t">AI 不是中立的：倫理原則，和偏誤從哪裡來</span></a></nav><section class="comments" aria-labelledby="comments-h"><h2 id="comments-h" class="kicker">留言</h2><p class="comments-note">用 GitHub 帳號留言；留言會公開在網站的 GitHub 討論區。</p><div class="giscus"></div><script>(function(){const c = {"repo":"jasper4336-hub/jasper4336-hub.github.io","repoId":"R_kgDOVZ7zZA","category":"Announcements","categoryId":"DIC_kwDOVZ7zZM4DJ2gk"};
 const themeBase = "https://jasper4336-hub.github.io/";
 
       const theme = () => {
@@ -252,7 +284,7 @@ const themeBase = "https://jasper4336-hub.github.io/";
         const f = document.querySelector('iframe.giscus-frame');
         if (f) f.contentWindow.postMessage({ giscus: { setConfig: { theme: theme() } } }, 'https://giscus.app');
       }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-    })();</script></section><section class="related" aria-labelledby="related-h"><h2 id="related-h" class="kicker">你可能也想讀</h2><div class="related-list"><a href="/posts/coursera-ai-teachers-02/" data-id="P009"><img src="/images/cover-coursera-02.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・9 分鐘</span><span class="related-t">AI 的兩個目標：幫人做事，也讓人看見自己</span></a><a href="/posts/coursera-ai-teachers-01/" data-id="P008"><img src="/images/cover-coursera-01.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・8 分鐘</span><span class="related-t">AI 加上人的判斷：老師在 AI 時代的位置</span></a><a href="/posts/marriage-choice/" data-id="P004"><img src="/images/cover-marriage-choice.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">心得・5 分鐘</span><span class="related-t">結不結婚、要不要孩子，我目前怎麼想</span></a></div></section><footer class="site-foot"><span>© Jasper 林禹丞</span><span>vanyuc0316@gmail.com ・ <a href="https://www.instagram.com/vanyu.c/" style="color: inherit">IG @vanyu.c</a></span><span class="foot-row"><span>台南 · <time id="clock">臺灣時間</time></span><span data-views-total hidden></span><a href="#">回到頂部 ↑</a><a href="/behind/">網站幕後 →</a></span></footer></div><script>
+    })();</script></section><section class="related" aria-labelledby="related-h"><h2 id="related-h" class="kicker">你可能也想讀</h2><div class="related-list"><a href="/posts/coursera-ai-teachers-02/" data-id="P009"><img src="/images/cover-coursera-02.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・14 分鐘</span><span class="related-t">AI 的兩個目標：幫人做事，也讓人看見自己</span></a><a href="/posts/coursera-ai-teachers-01/" data-id="P008"><img src="/images/cover-coursera-01.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・8 分鐘</span><span class="related-t">AI 加上人的判斷：老師在 AI 時代的位置</span></a><a href="/posts/coursera-ai-teachers-06/" data-id="P013"><img src="/images/cover-coursera-06.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">心得・12 分鐘</span><span class="related-t">修完這門課之後：五種思維，和我打算怎麼教</span></a></div></section><footer class="site-foot"><span>© Jasper 林禹丞</span><span>vanyuc0316@gmail.com ・ <a href="https://www.instagram.com/vanyu.c/" style="color: inherit">IG @vanyu.c</a></span><span class="foot-row"><span>台南 · <time id="clock">臺灣時間</time></span><span data-views-total hidden></span><a href="#">回到頂部 ↑</a><a href="/behind/">網站幕後 →</a></span></footer></div><script>
   (function () {
     const scales = [0.9, 1, 1.15, 1.3];
     const names = ['小', '標準', '大', '特大'];

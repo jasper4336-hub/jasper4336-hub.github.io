@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI 不是中立的：倫理原則，和偏誤從哪裡來|Jasper 林禹丞</title><meta name="description" content="給老師的 AI 教育・單元 05。澳洲的 AI 倫理原則怎麼用在真實案例、人的判斷為什麼會有偏誤，以及偏誤怎麼透過資料進到 AI 裡。最後談為什麼 AI 倫理要在學校教。"><meta name="jasper:id" content="P012"><meta property="og:type" content="article"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="AI 不是中立的：倫理原則，和偏誤從哪裡來|Jasper 林禹丞"><meta property="og:description" content="給老師的 AI 教育・單元 05。澳洲的 AI 倫理原則怎麼用在真實案例、人的判斷為什麼會有偏誤，以及偏誤怎麼透過資料進到 AI 裡。最後談為什麼 AI 倫理要在學校教。"><meta property="og:url" content="https://jasper4336-hub.github.io/posts/coursera-ai-teachers-05/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/cover-coursera-05.jpg"><meta property="og:image:alt" content="封面：AI 不是中立的。給老師的 AI 教育合集，單元 05，副標：倫理原則，和偏誤從哪裡來。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/posts/coursera-ai-teachers-05/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.2b848df6.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.50c27ac5.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.2b848df6.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.50c27ac5.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
+  // 先套用讀者上次選的字級，避免畫面跳動
+  try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
+  // 先套用讀者手動選的深淺色，沒選過就跟著系統
+  try { const th = localStorage.getItem('theme'); if (th === 'dark' || th === 'light') document.documentElement.dataset.theme = th; } catch (e) {}
+</script><link rel="stylesheet" href="/_astro/Base.BdAcwb_i.css"></head><body class="has-toc"><div class="wrap"><header class="site-head"><a class="logo" href="/">Jasper</a><nav class="site-nav" aria-label="主選單"><a href="/works/">作品</a><a href="/posts/" aria-current="page">文章</a><a href="/series/">合集</a><a href="/search/">搜尋</a><a href="/#learn">學習</a><a href="/#about">關於</a><a href="/tutoring/">家教</a><a href="/#contact">聯絡</a></nav></header><div class="readbar"><nav aria-label="本頁段落"><a href="#技術中立但用法不中立">技術中立，但用法不中立</a><a href="#八項原則從討論稿到定案">八項原則：從討論稿到定案</a><a href="#三個案例分別踩到哪一條線">三個案例，分別踩到哪一條線</a><a href="#拿手邊的工具練習">拿手邊的工具練習</a><a href="#人的判斷本來就有偏誤">人的判斷本來就有偏誤</a><a href="#資料就是程式碼偏誤怎麼進到-ai-裡">「資料就是程式碼」：偏誤怎麼進到 AI 裡</a><a href="#為什麼-ai-倫理要在學校教">為什麼 AI 倫理要在學校教</a><a href="#資料來源">資料來源</a></nav><div class="fs" role="group" aria-label="閱讀設定：字級與深淺色"><span>字級 <b id="fs-label">標準</b></span><button type="button" data-fs="-1" aria-label="字級縮小">A−</button><button type="button" data-fs="1" aria-label="字級放大">A+</button><button type="button" class="theme-btn" id="theme-btn" aria-label="切換深色模式" aria-pressed="false">深色</button><a class="cta-btn" href="/#contact">聯絡</a></div></div><div style="padding: 14px 0; font-size: 13px; font-weight: 700; color: var(--muted); border-bottom: 1px solid var(--ink)"><a href="/posts/" style="text-decoration: none; color: var(--muted)">文章</a> / 學習筆記</div><div style="max-width: 760px; margin: 0 auto"><section style="padding: 44px 0 24px"><div class="tags"><span class="tag solid">學習筆記</span><span class="tag">依官方資料整理</span></div><div class="post-tags" aria-label="標籤"><a href="/posts/?tag=AI%20%E6%95%99%E8%82%B2">#AI 教育</a><a href="/posts/?tag=AI%20%E5%80%AB%E7%90%86">#AI 倫理</a></div><a href="/series/coursera-ai-education-for-teachers/" style="display: inline-block; margin-bottom: 12px; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--accent-ink); text-decoration: none">合集・給老師的 AI 教育(Coursera)・單元 05 →</a><h1 class="t1" data-pagefind-meta="title">AI 不是中立的：倫理原則，和偏誤從哪裡來</h1><p class="lead">給老師的 AI 教育・單元 05。澳洲的 AI 倫理原則怎麼用在真實案例、人的判斷為什麼會有偏誤，以及偏誤怎麼透過資料進到 AI 裡。最後談為什麼 AI 倫理要在學校教。</p><div style="margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; font-size: 14px; color: var(--muted)"><span style="display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 700"><img src="/images/avatar.jpg" alt="" width="36" height="36" style="object-fit: cover; border: 1px solid var(--ink)">Jasper 林禹丞</span><time datetime="2026-10-29T06:10:00.000Z">發佈 2026-10-29 14:10</time><span>閱讀約 11 分鐘</span><span data-views hidden></span></div></section><figure style="margin: 0"><img src="/images/cover-coursera-05.jpg" alt="封面：AI 不是中立的。給老師的 AI 教育合集，單元 05，副標：倫理原則，和偏誤從哪裡來。" data-pagefind-meta="image[src]" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; border: 1px solid var(--ink)"><figcaption>圖：給老師的 AI 教育合集・單元 05。來源：作者自製封面。</figcaption></figure></div><div class="post-body"><aside class="toc" aria-label="文章目錄"><div class="toc-in"><div class="kicker">目錄</div><ol><li><a href="#技術中立但用法不中立">技術中立，但用法不中立</a></li><li><a href="#八項原則從討論稿到定案">八項原則：從討論稿到定案</a></li><li><a href="#三個案例分別踩到哪一條線">三個案例，分別踩到哪一條線</a></li><li><a href="#拿手邊的工具練習">拿手邊的工具練習</a></li><li><a href="#人的判斷本來就有偏誤">人的判斷本來就有偏誤</a></li><li><a href="#資料就是程式碼偏誤怎麼進到-ai-裡">「資料就是程式碼」：偏誤怎麼進到 AI 裡</a></li><li><a href="#為什麼-ai-倫理要在學校教">為什麼 AI 倫理要在學校教</a></li><li><a href="#資料來源">資料來源</a></li></ol></div></aside><article class="prose steps" data-id="P012" data-pagefind-body style="padding-top: 24px"><span hidden data-pagefind-meta="kind">學習筆記</span><div class="box">
+<p><b>這篇在講</b></p>
+<p><a href="#技術中立但用法不中立">1. 技術中立，但用法不中立</a><br><a href="#八項原則從討論稿到定案">2. 八項原則：從討論稿到定案</a><br><a href="#三個案例分別踩到哪一條線">3. 三個案例，分別踩到哪一條線</a><br><a href="#拿手邊的工具練習">4. 拿手邊的工具練習</a><br><a href="#人的判斷本來就有偏誤">5. 人的判斷本來就有偏誤</a><br><a href="#資料就是程式碼偏誤怎麼進到-ai-裡">6. 「資料就是程式碼」：偏誤怎麼進到 AI 裡</a><br><a href="#為什麼-ai-倫理要在學校教">7. 為什麼 AI 倫理要在學校教</a></p>
+</div>
+<p>上一篇說，AI 的一切都建立在資料之上：資料不好，結果就不可靠。這一篇要再往前一步問：如果資料本身就帶著人的偏見呢？AI 會不會把過去的不公平，學成「客觀」的規則？</p>
+<p>這個單元談兩件事：首先，用倫理原則判斷一個 AI 應用該不該用、怎麼用；再者，看清楚偏誤從哪裡來——先是人，再是資料，最後才是 AI。</p>
+<h2 id="技術中立但用法不中立">技術中立，但用法不中立</h2>
+<p>這個單元的受訪者 Kaaren Koomen 是 IBM 澳洲與紐西蘭區的政府與法規事務總監，有法律背景，工作是在 IBM 和政府之間溝通科技政策。她先提醒兩件事。</p>
+<p>第一，AI 早就在我們身邊：交通號誌放行多少車、Netflix 推薦什麼節目、醫療、採礦、農業都在用，而且接下來五到十年只會加速。第二，技術本身在某種程度上是中立的，演算法只是數字和資料；<b>放進去的資料，決定了出來的結果，也決定了人根據結果做出的決定。</b></p>
+<p>她舉了一個讓人不太舒服的例子。超市的會員卡記下了你買的每一樣東西；如果系統只為了提高業績，就會對最常買菸、酒、高油高鹽食物的人，推送更多這類商品的折扣和廣告。業績上去了，這個人的健康卻被拖垮。技術沒有變，變的是用它的目的。</p>
+<p>所以問題不是「要不要用 AI」，而是：用的時候，靠什麼來判斷這樣做對不對？</p>
+<h2 id="八項原則從討論稿到定案">八項原則：從討論稿到定案</h2>
+<p>課程用來判斷的工具，是澳洲的 AI 倫理原則。這裡有一個容易混淆的地方：澳洲有兩個版本的「八項原則」。</p>
+<p>課程活動用的是澳洲國家科學機構 CSIRO 旗下的數位研究單位 Data61，在 2019 年 4 月發表的討論稿《Artificial Intelligence: Australia’s Ethics Framework》；同年 11 月，澳洲政府徵詢意見後，定案了另一版【1】【2】。</p>
+<table>
+<thead>
+<tr>
+<th>CSIRO 討論稿（2019 年 4 月）</th>
+<th>政府定案版（2019 年 11 月）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>產生淨效益</td>
+<td>人類、社會與環境的福祉</td>
+</tr>
+<tr>
+<td>不造成傷害</td>
+<td>以人為本的價值</td>
+</tr>
+<tr>
+<td>遵守法規</td>
+<td>可靠與安全</td>
+</tr>
+<tr>
+<td>隱私保護</td>
+<td>隱私保護與安全</td>
+</tr>
+<tr>
+<td>公平</td>
+<td>公平</td>
+</tr>
+<tr>
+<td>透明與可解釋</td>
+<td>透明與可解釋</td>
+</tr>
+<tr>
+<td>可質疑</td>
+<td>可質疑</td>
+</tr>
+<tr>
+<td>問責</td>
+<td>問責</td>
+</tr>
+</tbody>
+</table>
+<p class="cap">表：澳洲 AI 倫理原則的兩個版本。左欄是課程活動使用的版本，右欄依澳洲工業部公告整理，兩欄不是一一對應。</p>
+<p>兩版的後半段幾乎一樣，其中最少人聽過的是「可質疑」(contestability)：當 AI 的決定影響到一個人，這個人要有一套有效的程序，可以挑戰這個結果。換句話說，AI 說「不」的時候，人要能問「為什麼」，也要能申訴。</p>
+<p>這些原則都是自願遵守的，不是法律。Koomen 也說，世界各國的原則大同小異，真正的考驗在於每個人怎麼用。</p>
+<h2 id="三個案例分別踩到哪一條線">三個案例，分別踩到哪一條線</h2>
+<p>課程給了三個真實案例，讓學員判斷各自最相關的是哪幾條原則：</p>
+<table>
+<thead>
+<tr>
+<th>案例</th>
+<th>發生了什麼</th>
+<th>最相關的原則</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教室裝監視器</td>
+<td>澳洲曾有老師被學生指控施暴，後來法官發現證詞不可靠；有人因此主張教室該裝監視器，也有人擔心監控會改變學校的本質</td>
+<td>隱私保護</td>
+</tr>
+<tr>
+<td>劍橋分析事件</td>
+<td>一款臉書人格測驗 App 約有 27 萬人安裝，卻透過好友關係取得了數千萬人的資料，被拿去做成選民的心理檔案【3】</td>
+<td>隱私保護</td>
+</tr>
+<tr>
+<td>波音 737 MAX</td>
+<td>新的飛行控制系統(MCAS)會依單一感測器的資料自動壓低機頭，許多飛行員卻不知道它存在；兩起空難共 346 人罹難【4】</td>
+<td>不造成傷害、透明與可解釋、可質疑</td>
+</tr>
+</tbody>
+</table>
+<p class="cap">表：課程的三個倫理案例。案例整理自課程，數字依註明的來源。</p>
+<figure><img src="/images/fig-lion-air-max.jpg" alt="一架紅白塗裝的獅航波音 737 MAX 8 客機停在機坪上" width="1000" height="635" loading="lazy"><figcaption>圖：獅航的波音 737 MAX 8（註冊號 PK-LQP）。2018 年 10 月，這架飛機以獅航 610 號班機的身分墜海，是兩起空難的第一起。來源：PK-REN 攝，Wikimedia Commons，CC BY-SA 2.0。</figcaption></figure>
+<p>第三個案例最值得多想。「不造成傷害」是最直覺的答案；但如果再追問下去：飛行員對這套系統了解夠不夠？這是透明與可解釋的問題。當系統判斷錯誤、一直把機頭往下壓，飛行員能不能推翻它？這就是可質疑的問題。很多時候，傷害不是單一原則被違反，而是好幾條同時失守。</p>
+<h2 id="拿手邊的工具練習">拿手邊的工具練習</h2>
+<p>原則要用過才會熟。用自己常用的工具來練習最直接，例如 Claude Code：一個可以安裝在電腦終端機裡、直接讀取和修改電腦檔案的 AI 程式助手。</p>
+<p>八項原則都和它有關，其中最重要的是三項：</p>
+<table>
+<thead>
+<tr>
+<th>原則</th>
+<th>為什麼重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>遵守法規</td>
+<td>它在使用者的電腦上運作，可能接觸個人資料和財產相關的資訊；作為訂閱制的產品推廣、販售，合規是必要的前提</td>
+</tr>
+<tr>
+<td>隱私保護</td>
+<td>它會操作終端機、本機資料夾，甚至瀏覽器，完整妥當的隱私政策與保護不可少</td>
+</tr>
+<tr>
+<td>問責</td>
+<td>萬一發生資料外洩或其他風險事件，受害的人要有明確的對象可以追責</td>
+</tr>
+</tbody>
+</table>
+<p class="cap">表：用 CSIRO 原則檢視一個 AI 程式助手。作者整理。</p>
+<p>社群媒體就是反例：缺少監管時，偽造內容、用逆向工程竊取智慧財產卻不必負責的情況，就會層出不窮。</p>
+<h2 id="人的判斷本來就有偏誤">人的判斷本來就有偏誤</h2>
+<p>談 AI 的偏誤之前，課程先從人談起。</p>
+<p>打網球時，球到底有沒有出界？如果雙方都沒看清楚，對手可能因為想贏而喊出界，也可能因為客氣而喊界內。現在已經有 App 可以從影片判斷，而且我們能自己看畫面驗證。像這樣資料單純、結果可以檢查的判斷，交給機器很合理。</p>
+<p>但有些決定的後果大得多，資料也更需要詮釋：要錄取哪一位應徵者？要不要核准一份社福申請？被告再犯的可能性有多高？哲學家 Mark Coeckelbergh 把這類情境裡的偏誤定義為：對特定個人或群體的歧視或偏袒；真正的問題在於，這種偏誤是否不正義、不公平【5】。</p>
+<p>人的偏誤有兩種來源。一種是認知上的捷徑：心理學家 Amos Tversky 與 Daniel Kahneman 在 1974 年的經典論文中，描述了人在不確定時常用的三種「捷思」（heuristics，也就是思考的捷徑）【6】：</p>
+<table>
+<thead>
+<tr>
+<th>捷思</th>
+<th>意思</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代表性</td>
+<td>看起來像某一類，就判斷屬於那一類</td>
+<td>聽到「安靜內向」，就猜他念理工科，忽略了念文科的人本來就更多</td>
+</tr>
+<tr>
+<td>可得性</td>
+<td>越容易想到的例子，就覺得越常發生</td>
+<td>剛看完空難新聞，就覺得搭飛機比開車危險</td>
+</tr>
+<tr>
+<td>錨定</td>
+<td>估計時被一開始看到的數字拉著走</td>
+<td>原價寫 3,000 元、特價 1,500 元，就覺得 1,500 元很便宜</td>
+</tr>
+</tbody>
+</table>
+<p class="cap">表：三種常見的捷思。例子為作者補充，分類依 Tversky & Kahneman (1974)。</p>
+<figure class="side"><img src="/images/fig-kahneman.jpg" alt="Daniel Kahneman 在講台上說話的照片" width="500" height="594" loading="lazy"><figcaption>圖：Daniel Kahneman，2002 年諾貝爾經濟學獎得主。來源：nrkbeta 攝，Wikimedia Commons，CC BY-SA 2.0。</figcaption></figure>
+<p>另一種來源不是思考的捷徑，而是偏見：某些群體因為性別、種族、年齡、社經地位、宗教或性傾向，更容易成為敵意和歧視的對象。</p>
+<h2 id="資料就是程式碼偏誤怎麼進到-ai-裡">「資料就是程式碼」：偏誤怎麼進到 AI 裡</h2>
+<p>那麼，把決定交給 AI，能不能擺脫人的偏誤？Koomen 的回答很誠實：人本來就不是沒有偏見的，舊的面試方式也常偏好和自己背景相似的人；AI 確實有機會減少這種偏袒。但只要設定標準的方式不對，偏誤就會被寫進系統裡。</p>
+<p>美國非營利組織 Code.org 有一支給學生看的影片，把這件事說得很直接：在機器學習裡，資料就是程式碼。影片用 AI 判讀 X 光片找疾病當例子：訓練資料太少或不具代表性，AI 做出的判斷就會有偏差【9】。</p>
+<p>荷蘭阿姆斯特丹大學的 Frederik Zuiderveen Borgesius 教授，在 2018 年替歐洲理事會（Council of Europe，歐洲的人權組織，不是歐盟）寫的報告中，整理了 AI 造成歧視的五種途徑【7】：</p>
+<table>
+<thead>
+<tr>
+<th>途徑</th>
+<th>意思</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目標怎麼定義</td>
+<td>用什麼標準決定「好」或「該給」</td>
+<td>社福資格以「表格有沒有填完整」為準，就不利於最需要幫助、卻最不會填表的人</td>
+</tr>
+<tr>
+<td>有偏的訓練資料</td>
+<td>資料來自過去有偏見的決定，或某些群體的資料太少</td>
+<td>公司過去只錄取特定地區的人，AI 學到的就是「這個地區的人比較好」</td>
+</tr>
+<tr>
+<td>變數的選擇</td>
+<td>選了哪些資料來判斷</td>
+<td>把畢業學校的排名放進評分，對弱勢背景的學生不利</td>
+</tr>
+<tr>
+<td>代理變數</td>
+<td>看起來無關的資料，其實和身分高度相關</td>
+<td>住址、購物紀錄、社群好友，可能間接透露種族或懷孕的可能</td>
+</tr>
+<tr>
+<td>蓄意歧視</td>
+<td>用 AI 包裝原本的偏見</td>
+<td>表面上由 AI「公平地」決定獎金，實際上是在掩護主管的偏好</td>
+</tr>
+</tbody>
+</table>
+<p class="cap">表：AI 造成歧視的五種途徑。依 Zuiderveen Borgesius (2018) 整理，例子部分出自課程。</p>
+<p>Koomen 舉的徵才例子，幾乎每一種都碰到了。用 AI 篩選大量履歷時：</p>
+<figure class="cards"><div class="card"><span class="k">語言</span><b>英文不是母語</b><p>文法不夠好，就可能被刷掉</p></div><div class="card"><span class="k">學歷</span><b>要求填澳洲高中會考成績</b><p>從海外來的人直接出局</p></div><div class="card"><span class="k">年齡</span><b>問出生日期</b><p>就可能淘汰某個年齡以上或以下的人</p></div><figcaption>圖：徵才 AI 可能刷掉人的三個地方。例子出自課程訪談。</figcaption></figure>
+<p>所以她主張，AI 只是提高效率的工具，不能取代人的判斷；落選的人也要能知道自己是因為哪一條標準落選。</p>
+<p>IBM 自己也做過這樣的決定。2020 年 6 月，IBM 執行長 Arvind Krishna 致信美國國會，宣布不再提供通用的人臉辨識技術【8】。Koomen 在訪談中說明，原因是這項技術辨識有色人種時誤差太大；用在執法上，一旦認錯人，代價就是一個人被逮捕、被起訴。</p>
+<h2 id="為什麼-ai-倫理要在學校教">為什麼 AI 倫理要在學校教</h2>
+<p>讀到這裡，可能會有人問：大多數學生將來不會寫 AI，為什麼要學 AI 倫理？</p>
+<p>首先，倫理和技術是分不開的。要懂一點 AI 是怎麼建構的，才看得見可解釋性、隱私和問責這些問題；而如果對 AI 沒有這些可以檢查的要求，我們連自己在使用過程中權益有沒有受損、有沒有申訴和避開風險的空間，都不會知道。</p>
+<p>再者，學生最需要先懂的，是兩條原則：價值對齊與公平。價值對齊決定了一項技術被拿去做什麼，也就是它的目的；公平則確保一項本該客觀中立的技術，即使經過資料和人的調整，也不會繼承人類社會的偏見，造成不公和歧視。</p>
+<p>最後，AI 倫理和批判性思考是同一件事的兩面。能理解、能邏輯思考，才能指出可能的錯誤、質疑既定的答案；具備這種素養的學生，會更客觀地使用 AI、判斷收到的資訊，並且提出自己的見解，而不是依賴現成的解釋——這正是一個公民在技術塑造的社會裡，保有主體性的方式。</p>
+<p>上一篇說，AI 再強，也需要人把問題想清楚。這一篇補上後半句：也需要人決定，什麼樣的結果才算公平。下一篇是這門課的最後一個單元，我會把六個單元串起來，談談修完之後，我打算怎麼教。</p>
+<h2 id="資料來源">資料來源</h2>
+<ol>
+<li>Dawson, D., et al. (2019). <em>Artificial Intelligence: Australia’s Ethics Framework</em>（討論稿）。Data61, CSIRO.</li>
+<li>Australian Government, Department of Industry, Science and Resources. <em>Australia’s AI Ethics Principles</em>. <a href="https://www.industry.gov.au/publications/australias-artificial-intelligence-ethics-principles/australias-ai-ethics-principles">https://www.industry.gov.au/publications/australias-artificial-intelligence-ethics-principles/australias-ai-ethics-principles</a></li>
+<li>Privacy International. Cambridge Analytica’s harvesting of 50 million Facebook profiles. <a href="https://privacyinternational.org/examples/2149/cambridge-analyticas-harvesting-50-million-facebook-profiles">https://privacyinternational.org/examples/2149/cambridge-analyticas-harvesting-50-million-facebook-profiles</a>（臉書後來估計受影響者最多約 8,700 萬人）</li>
+<li>Reuters 報導（2020-09-16）：美國眾議院運輸與基礎建設委員會發表 737 MAX 調查最終報告。轉載：<a href="https://globalnews.ca/news/7338086/house-report-blasts-boeing-737-max-faa">https://globalnews.ca/news/7338086/house-report-blasts-boeing-737-max-faa</a></li>
+<li>Coeckelbergh, M. (2020). <em>AI Ethics</em>. MIT Press.</li>
+<li>Tversky, A., &amp; Kahneman, D. (1974). Judgment under uncertainty: Heuristics and biases. <em>Science, 185</em>(4157), 1124–1131. <a href="https://doi.org/10.1126/science.185.4157.1124">https://doi.org/10.1126/science.185.4157.1124</a></li>
+<li>Zuiderveen Borgesius, F. (2018). <em>Discrimination, artificial intelligence, and algorithmic decision-making</em>. Council of Europe. <a href="https://rm.coe.int/discrimination-artificial-intelligence-and-algorithmic-decision-making/1680925d73">https://rm.coe.int/discrimination-artificial-intelligence-and-algorithmic-decision-making/1680925d73</a></li>
+<li>World Economic Forum (2020-06). IBM 不再提供人臉辨識技術。<a href="https://www.weforum.org/stories/2020/06/ibm-facial-recognition-george-floyd/">https://www.weforum.org/stories/2020/06/ibm-facial-recognition-george-floyd/</a></li>
+<li>Code.org. AI 教學資源與影片〈Training data and bias〉. <a href="https://code.org/ai">https://code.org/ai</a></li>
+<li>配圖：<a href="https://commons.wikimedia.org/wiki/File:Lion_Air_Boeing_737-MAX8_PK-LQP.jpg">獅航 737 MAX 8 PK-LQP</a>（PK-REN，CC BY-SA 2.0）、<a href="https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3283955327)_(cropped).jpg">Daniel Kahneman</a>（nrkbeta，CC BY-SA 2.0），皆取自 Wikimedia Commons。</li>
+</ol>
+</article></div><a class="series-foot" href="/series/coursera-ai-education-for-teachers/"><span class="kicker">這篇屬於合集</span><span class="series-foot-title">給老師的 AI 教育(Coursera)</span><span class="series-foot-meta">單元 05 / 共 6 單元・看全部單元 →</span></a><nav class="pager" aria-label="合集裡的上一篇與下一篇"><a href="/posts/coursera-ai-teachers-04/"><span class="pager-k">← 上一單元</span><span class="pager-t">資料決定 AI 學到什麼：資料素養與運算思維</span></a><a class="pager-next" href="/posts/coursera-ai-teachers-06/"><span class="pager-k">下一單元 →</span><span class="pager-t">修完這門課之後：五種思維，和我打算怎麼教</span></a></nav><section class="comments" aria-labelledby="comments-h"><h2 id="comments-h" class="kicker">留言</h2><p class="comments-note">用 GitHub 帳號留言；留言會公開在網站的 GitHub 討論區。</p><div class="giscus"></div><script>(function(){const c = {"repo":"jasper4336-hub/jasper4336-hub.github.io","repoId":"R_kgDOVZ7zZA","category":"Announcements","categoryId":"DIC_kwDOVZ7zZM4DJ2gk"};
+const themeBase = "https://jasper4336-hub.github.io/";
+
+      const theme = () => {
+        const t = document.documentElement.dataset.theme;
+        const dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        return `${themeBase}giscus-${dark ? 'dark' : 'light'}.css`;
+      };
+      const s = document.createElement('script');
+      s.src = 'https://giscus.app/client.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      Object.entries({
+        repo: c.repo, 'repo-id': c.repoId, category: c.category, 'category-id': c.categoryId,
+        mapping: 'pathname', strict: '1', 'reactions-enabled': '1', 'emit-metadata': '0',
+        'input-position': 'top', theme: theme(), lang: 'zh-TW', loading: 'lazy',
+      }).forEach(([k, v]) => s.setAttribute(`data-${k}`, v));
+      document.querySelector('.giscus').after(s);
+      // 讀者按「深色」時，留言區跟著換
+      new MutationObserver(() => {
+        const f = document.querySelector('iframe.giscus-frame');
+        if (f) f.contentWindow.postMessage({ giscus: { setConfig: { theme: theme() } } }, 'https://giscus.app');
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    })();</script></section><section class="related" aria-labelledby="related-h"><h2 id="related-h" class="kicker">你可能也想讀</h2><div class="related-list"><a href="/posts/coursera-ai-teachers-03/" data-id="P010"><img src="/images/cover-coursera-03.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・16 分鐘</span><span class="related-t">資訊不再只由人產生：AI 時代為什麼更需要批判性思考</span></a><a href="/posts/coursera-ai-teachers-02/" data-id="P009"><img src="/images/cover-coursera-02.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・14 分鐘</span><span class="related-t">AI 的兩個目標：幫人做事，也讓人看見自己</span></a><a href="/posts/coursera-ai-teachers-01/" data-id="P008"><img src="/images/cover-coursera-01.jpg" alt="" loading="lazy" width="320" height="200"><span class="related-k">學習筆記・8 分鐘</span><span class="related-t">AI 加上人的判斷：老師在 AI 時代的位置</span></a></div></section><footer class="site-foot"><span>© Jasper 林禹丞</span><span>vanyuc0316@gmail.com ・ <a href="https://www.instagram.com/vanyu.c/" style="color: inherit">IG @vanyu.c</a></span><span class="foot-row"><span>台南 · <time id="clock">臺灣時間</time></span><span data-views-total hidden></span><a href="#">回到頂部 ↑</a><a href="/behind/">網站幕後 →</a></span></footer></div><script>
+  (function () {
+    const scales = [0.9, 1, 1.15, 1.3];
+    const names = ['小', '標準', '大', '特大'];
+    const root = document.documentElement;
+    const label = document.getElementById('fs-label');
+    let i = scales.indexOf(parseFloat(getComputedStyle(root).getPropertyValue('--k')) || 1);
+    if (i < 0) i = 1;
+    const apply = () => {
+      root.style.setProperty('--k', String(scales[i]));
+      label.textContent = names[i];
+      try { localStorage.setItem('fs-k', String(scales[i])); } catch (e) {}
+    };
+    label.textContent = names[i];
+    document.querySelectorAll('[data-fs]').forEach((b) => b.addEventListener('click', () => {
+      i = Math.min(scales.length - 1, Math.max(0, i + Number(b.dataset.fs)));
+      apply();
+    }));
+
+    // 深淺色切換：按鈕顯示目前是不是深色；手動選過就記住
+    const tb = document.getElementById('theme-btn');
+    const isDark = () => root.dataset.theme === 'dark';
+    const show = () => tb.setAttribute('aria-pressed', String(isDark()));
+    show();
+    tb.addEventListener('click', () => {
+      root.dataset.theme = isDark() ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      show();
+    });
+    // 頁尾的臺灣時間，每分鐘更新
+    const clock = document.getElementById('clock');
+    const tick = () => { clock.textContent = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()); };
+    tick(); setInterval(tick, 30000);
+
+    // 段落跟隨：捲到哪一段，段落列與側欄目錄就標出哪一段
+    const links = [...document.querySelectorAll('.readbar nav a[href^="#"], .toc a[href^="#"]')];
+    const targets = [...new Set(links.map((a) => decodeURIComponent(a.hash.slice(1))))]
+      .map((id) => document.getElementById(id)).filter(Boolean);
+    if (targets.length) {
+      const bar = document.querySelector('.readbar nav');
+      let current = '';
+      // 讀者開啟「減少動態效果」時，段落列直接跳到位置，不做平滑捲動
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mark = () => {
+        // 最後一個已經捲過畫面上方 1/4 的段落，就是目前在讀的段落
+        const line = window.innerHeight * 0.25;
+        let id = '';
+        for (const t of targets) if (t.getBoundingClientRect().top <= line) id = t.id;
+        if (id === current) return;
+        current = id;
+        for (const a of links) {
+          const on = decodeURIComponent(a.hash.slice(1)) === id;
+          a.classList.toggle('on', on);
+          if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+          // 段落列是橫向捲動的，把目前段落捲進可見範圍（不動到整頁）
+          if (on && bar && bar.contains(a)) bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 3, behavior: still ? 'auto' : 'smooth' });
+        }
+      };
+      let ticking = false;
+      addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; mark(); }); } }, { passive: true });
+      addEventListener('resize', mark);
+      mark();
+    }
+  })();
+</script><script async data-goatcounter="https://jasper4336.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script><script>(function(){const code = "jasper4336";
+
+    // 文章與作品頁顯示這一頁的次數，頁尾顯示全站的總次數；讀不到就保持隱藏
+    const show = (el, path, label) => el && fetch(`https://${code}.goatcounter.com/counter/${path}.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d && d.count) { el.textContent = `${label} ${d.count} 次`; el.hidden = false; } })
+      .catch(() => {});
+    show(document.querySelector('[data-views]'), encodeURIComponent(location.pathname), '瀏覽');
+    show(document.querySelector('[data-views-total]'), 'TOTAL', '全站瀏覽');
+  })();</script></body></html>
