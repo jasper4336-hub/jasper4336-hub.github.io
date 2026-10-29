@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>書架・立體模式|Jasper 林禹丞</title><meta name="description" content="把書架上的書拿下來翻：書背朝外排在書櫃上，點一本可以轉動、翻開、翻頁。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="書架・立體模式|Jasper 林禹丞"><meta property="og:description" content="把書架上的書拿下來翻：書背朝外排在書櫃上，點一本可以轉動、翻開、翻頁。"><meta property="og:url" content="https://jasper4336-hub.github.io/books/3d/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og-home.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站：我做的學習工具，和做它們的過程。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/books/3d/"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.3517c759.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.8d742757.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.3517c759.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.8d742757.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
+  // 先套用讀者上次選的字級，避免畫面跳動
+  try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
+  // 先套用讀者手動選的深淺色，沒選過就跟著系統
+  try { const th = localStorage.getItem('theme'); if (th === 'dark' || th === 'light') document.documentElement.dataset.theme = th; } catch (e) {}
+</script><link rel="stylesheet" href="/_astro/Base.aMJzZhaj.css"><link rel="stylesheet" href="/_astro/3d.B7ntZ4Op.css"></head><body><div class="wrap"><header class="site-head"><a class="logo" href="/">Jasper</a><nav class="site-nav" aria-label="主選單"><a href="/works/">作品</a><a href="/posts/">文章</a><a href="/series/">合集</a><a href="/books/" aria-current="page">書架</a><a href="/#about">關於</a><a class="nav-icon" href="/search/" aria-label="搜尋" title="搜尋"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.4"></circle><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.4"></path></svg></a></nav></header><div class="readbar"><nav aria-label="本頁段落"></nav><div class="fs" role="group" aria-label="閱讀設定：字級與深淺色"><span>字級 <b id="fs-label">標準</b></span><button type="button" data-fs="-1" aria-label="字級縮小">A−</button><button type="button" data-fs="1" aria-label="字級放大">A+</button><button type="button" class="theme-btn" id="theme-btn" aria-label="切換深色模式" title="切換深淺色" aria-pressed="false"><span class="th-dark"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span class="th-light"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span></button><a class="cta-btn" href="/#contact" aria-label="聯絡我" title="聯絡我"><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg><span class="cta-t">聯絡</span></a></div></div><div class="s3d"><h1 class="t1" style="margin-top: 40px">書架・立體模式</h1><p class="lead">2024 年夏天開始的書架，照讀完的時間由左往右排。點一本書把它拿下來：拖曳可以轉動，翻開後左右滑動或按方向鍵翻頁，Esc 放回去。</p><p class="s3d-tools"><a href="/books/">← 回文字版書架</a><span style="color: var(--muted)">書的厚度依大概頁數畫的，只是示意。</span></p><noscript><p>立體模式需要 JavaScript。請改看<a href="/books/">文字版書架</a>。</p></noscript><div class="room"><div class="case" id="case" aria-label="書架，共 10 本"></div></div><div class="stage" id="stage" role="dialog" aria-modal="true" aria-labelledby="cap-t"><div class="scrim"></div><div class="floor"></div><div class="cap"><b id="cap-t"></b><span id="cap-s"></span></div><div class="holder" id="holder"></div><div class="bar"><button type="button" id="b-back">放回書架</button><button type="button" id="b-prev" aria-label="上一頁">‹</button><span class="pos" id="pos" aria-live="polite"></span><button type="button" id="b-next" aria-label="下一頁">›</button><button type="button" id="b-open" class="main">翻開</button></div></div></div><script type="application/json" id="s3d-data">[{"id":"our-inner-conflicts","no":"B003","title":"我們內心的衝突","author":"卡倫・荷妮（Karen Horney）","translator":"李娟","publisher":"小樹文化","year":2019,"isbn":"9789570487114","category":"心理與人際","read":"2024-07","oneLine":"童年經歷會影響人，但人一輩子都擁有改變自己的能力。","review":["這是一本精神分析的經典，讀起來不輕鬆，我的筆記大多是幫自己整理的小標：阻力與推力、怎麼開導絕望、什麼叫負責、關於理想。","書裡最核心的概念是「理想化形象」：人為了逃避內心的衝突，在心裡替自己塑造一個完美的樣子，再深信自己就是那個樣子。作者也指出，很多人害怕改變，其實是害怕失去這個形象。","讓我安心的是作者的結論：童年經歷會影響人，但人終身擁有改變自己的能力。治療的目標是找回自己、形成自己的價值觀，再在自己的感受和信念上，和他人建立關係。"],"t":{"ratio":1.641,"spine":true,"color":"#d7d6ce","pages":300,"frontUrl":"/images/books/3d/our-inner-conflicts-front.webp","spineUrl":"/images/books/3d/our-inner-conflicts-spine.webp"}},{"id":"the-war-of-art","no":"B002","title":"一生之敵","author":"史蒂文・普雷斯菲爾德（Steven Pressfield）","translator":"趙碩碩","publisher":"上海文藝出版社","year":2024,"isbn":"9787553530215","category":"學習與思考","read":"2025-03","oneLine":"把熬夜滑短影片的時間拿來讀它，是我做過最划算的一筆交易。","review":["我花了一天讀完，讀完心情像被解放了。如果這是一場時間的交易，我用曾經熬夜刷短影片的時間，換來和一位在人生路上走了很久的人進行一場無聲的交流，得到豁然開朗的滿足感，太划算了。","「內阻力」是很好的比喻，讓我第一次換個角度看見：在找到那個注定要成為的自己的路上，會遇到什麼樣的阻礙。書裡很多地方我都在旁邊寫下自己的話：持續做，比努力做還要緊；不用過分認同自己熱愛的事，行動才是對它真正的認同；越是不想面對、越害怕的事，往往就是必須做的事。","最後記下的一句是：你隨時都可以開始。"],"t":{"ratio":1.497,"spine":true,"color":"#f2f2f2","pages":180,"frontUrl":"/images/books/3d/the-war-of-art-front.webp","spineUrl":"/images/books/3d/the-war-of-art-spine.webp"}},{"id":"jingjin","no":"B001","title":"精進：如何成為一個很厲害的人","author":"采銅","publisher":"江蘇鳳凰文藝出版社","year":2016,"isbn":"9787539990484","category":"學習與思考","read":"2025-06","oneLine":"學習要能用在現實裡才算數：這本書讓我開始把「想」換成「做」。","review":["對我最有用的一句話，是我自己改寫的：只有最後能作用於現實的學習，才是有效的學習。學習不全靠記憶，要在現實裡應用、產出，再從實踐裡反思，回頭引導下一次實踐。","書裡談到動力消退時人就會拖延，我在旁邊寫了「這是我呢」。後來給自己的提醒很簡單：行動大於空想，用行動取代逃避，小事能處理就先處理掉。也開始練習在「近未來」和「遠未來」之間取得平衡，問自己五年後想成為怎樣的人，再放下對未來的執念，聚焦眼前。","知道自己想做什麼、專精在哪裡，並且持之以恆地做，我覺得是這個時代最可貴的品質之一。"],"t":{"ratio":1.462,"spine":false,"color":"#fbf9ea","pages":300,"frontUrl":"/images/books/3d/jingjin-front.webp","spineUrl":""}},{"id":"amusing-ourselves-to-death","no":"B004","title":"娛樂至死","author":"尼爾・波茲曼（Neil Postman）","translator":"蔡承志","publisher":"貓頭鷹出版","year":2016,"isbn":"9789862622988","category":"社會與媒介","read":"2025-07","oneLine":"想知道短影音為什麼讓人停不下來，先讀這本四十年前寫電視的書。","review":["媒介像是水，訊息是水裡的魚：水的性質決定了魚怎麼游，也就是訊息怎麼被傳遞、被理解。波茲曼談的是電視，但我讀的時候一直想到現在的短影音。今天有人提醒短影片會傷害注意力和學習能力，常會被質疑；沉浸其中的人不覺得有害，也不喜歡被說自己的習慣有影響。","「劣幣驅逐良幣」不只發生在經濟上，也發生在我們交流的媒介裡：簡單取代了複雜，因為它更貼近人性裡怕麻煩的那一面。書本讓人用比較嚴謹的方式認識世界；而在被訊息淹沒的網路上，我們只能有限地過濾，盡量留下和自己有關的。","讀完我最大的收穫是：先意識到媒介本身帶著什麼隱喻，才可能對它有一點控制。要找回公共討論裡的理性和思考，只能從自我察覺開始。"],"t":{"ratio":1.647,"spine":true,"color":"#2e2e2e","pages":260,"frontUrl":"/images/books/3d/amusing-ourselves-to-death-front.webp","spineUrl":"/images/books/3d/amusing-ourselves-to-death-spine.webp"}},{"id":"agony-of-eros","no":"B007","title":"愛欲之死","author":"韓炳哲（Byung-Chul Han）","translator":"管中琪","publisher":"大塊文化","year":2022,"isbn":"9786267118481","category":"社會與媒介","read":"2026-01","oneLine":"當愛變成可以挑選、可以優化的選項，我們也慢慢失去了愛的能力。","review":["比預期花了更長的時間才讀完，很欣賞韓炳哲思考的深度和廣度。如果你對愛情、人、當代社會之間的關係感到困惑，對它們的模式從哪裡來感到好奇，這本書會給你一個貼切、邏輯自洽的回答，至少能讓你換一個角度看。對很少讀哲學的我來說有點挑戰，但作者的語言還算照顧一般讀者。","最有感的是「效率社會」那部分：一切都變成可能性，愛被當成一個可以選擇的選項，關係被當成可以優化的項目。愛無法量化，這是我在筆記裡寫得最短的一句。","我也在一段話旁邊寫了「就是在說你呢」：人的內心也是一個小世界，想要通透、有深度，就要學會避開噪音，習慣在獨處中探險。"],"t":{"ratio":1.609,"spine":true,"color":"#a992ab","pages":120,"frontUrl":"/images/books/3d/agony-of-eros-front.webp","spineUrl":"/images/books/3d/agony-of-eros-spine.webp"}},{"id":"burnout-society","no":"B006","title":"倦怠社會","author":"韓炳哲（Byung-Chul Han）","translator":"莊雅慈、管中琪","publisher":"大塊文化","year":2015,"isbn":"9789862135976","category":"社會與媒介","read":"2026-02","oneLine":"以為自己很自由，其實是自己在逼自己：這本小書把這件事說得很準。","review":["這本書很薄，但有幾段讓我覺得被描述得太精闢了，因為那正是很多人的日常：趁著流量時代的紅利還沒用完，選擇行銷自己、累積名聲來謀生，換取更好的生活條件、機會和人脈。在臉書上展示自我，也就是把自己變成了商品。","書裡說的「功績主體」以為自己是自由人，卻在效率的禁令下自己剝削自己。我讀完的提醒是：現代人或許需要重新學會停留，也不要停止去發現生命中的意義。","最喜歡的一個連結是「星期天的由來」：那原本是什麼都不做、從目的中解放出來的一天。"],"t":{"ratio":1.625,"spine":true,"color":"#e4d6d1","pages":110,"frontUrl":"/images/books/3d/burnout-society-front.webp","spineUrl":"/images/books/3d/burnout-society-spine.webp"}},{"id":"in-the-swarm","no":"B008","title":"在群中：數字媒體時代的大眾心理學","author":"韓炳哲（Byung-Chul Han）","translator":"程巍","publisher":"中信出版社","year":2019,"isbn":"9787508696911","category":"社會與媒介","read":"2026-02","oneLine":"十多年前寫的數位媒體批判，放到今天的短影音時代一點也不過時。","review":["韓炳哲寫這本書時還沒有短影音，但我讀的時候一直對應到現在的腦腐內容：沒有意義，卻傳播得很快。真有預見性。","書裡有兩章接在一起讀很有意思。〈從經手到動指〉說，取代手的是手指：人越來越只動指尖，真正的行動也跟著變少。接著的〈從農夫到獵人〉用了一組比喻：過去的人像農夫，耕地要照料、要等待，就像知識得靠長期的經驗累積，而且不會一眼就看見；今天的人則像獵人，在網路這片「數字獵場」裡遊蕩，沒有耐心，只求每一次點擊都有獵物入袋，捕到的多半是來得快、去得也快的資訊。舊石器時代的獵人拿著矛和弓箭、得冒生命危險，新的獵人手裡只有滑鼠，獵的是資訊。","讀到這裡，我在旁邊寫：原來還可以這樣說。那我們狩獵也不再只是為了生存，而是把獵物當成緩解生活焦慮和疲憊的精神食糧。這也加深了我們對數位設備的依賴，讓我們更難在大量、品質參差的資訊裡，得到真正有用的東西，而不是雜訊。","還有一段談對視：直接的四目相對是一種美好，你在看別人的同時也被看著。可惜這種美好越來越少見，疏於對視的人，甚至可能開始害怕和人對視。"],"t":{"ratio":1.431,"spine":false,"color":"#cbb55c","pages":120,"frontUrl":"/images/books/3d/in-the-swarm-front.webp","spineUrl":""}},{"id":"fang-si-chi","no":"B009","title":"房思琪的初戀樂園","author":"林奕含","publisher":"游擊文化","year":2025,"isbn":"9786269917457","category":"文學","read":"2026-05","oneLine":"用最美的文字寫最不該發生的事。讀得很慢，但值得讀完。","warning":"內容涉及對未成年人的性暴力，閱讀前請留意自己的狀態；未成年讀者建議有大人陪伴。","review":["這本書不好讀，我前後讀了六天。","讀的時候，我在筆記裡抄了兩段別人的話。一段是隨書小冊子收錄的讀者留言，大意是：讀書讓我們看見世界的黑暗面，卻不必親身經歷。另一段是評論家楊慶祥的推薦語：美好的東西因為脆弱而易碎，小說讓我們記住它，也帶來一點寬慰。這兩段話我一直記著。","小冊子也收了林奕含在訂婚宴上的致辭。她說，她想成為一個對他人的痛苦更有想像力的人。讀到書中說文學是最徒勞的那一段，我回了她一句：妳做到了。","（引用出處：簡體版《房思琪的初戀樂園》隨書小冊子，北京聯合出版公司／磨鐵圖書，2018。）"],"t":{"ratio":1.572,"spine":true,"color":"#e0cfb7","pages":250,"frontUrl":"/images/books/3d/fang-si-chi-front.webp","spineUrl":"/images/books/3d/fang-si-chi-spine.webp"}},{"id":"otoko-to-iu-mono","no":"B010","title":"男人這東西","author":"渡邊淳一","translator":"陸求實","publisher":"南門書局","year":2025,"isbn":"9786263423848","category":"文學","read":"2026-06","oneLine":"從男性的角度看戀愛、婚姻和倦怠，讀完覺得自己要學的還很多。","warning":"書中直白地談男性本能、外遇與婚姻，較適合成年讀者。","review":["渡邊淳一用很直白的方式寫男人的本能、戀愛和婚姻，很多段落與我觀察到的情況如出一轍，也有些地方我持保留態度。","我最在意的不是書裡的結論，而是讀完後給自己的功課：是否願意、並且有能力去對抗某些本能，是身為男性的我們需要思考和學習的。為了婚姻的品質和長久而學習、做出改變，感情是可以經營的。","幾句寫在旁邊的話：絕對的愛存在，但它很短暫；接受改變，不忘初心；換個角度想，倦怠也是安逸。讀到「自我的消融」時，我也想起了韓炳哲的《愛欲之死》。"],"t":{"ratio":1,"spine":false,"color":"#0c5baa","pages":260,"frontUrl":"/images/books/3d/otoko-to-iu-mono-front.webp","spineUrl":""}},{"id":"transparency-society","no":"B005","title":"透明社會","author":"韓炳哲（Byung-Chul Han）","translator":"管中琪","publisher":"大塊文化","year":2019,"isbn":"9789865406363","category":"社會與媒介","read":"2026-07","oneLine":"越急著把一切攤開來看，我們越失去走近一個人的耐心。","review":["這本書讓我重新想「了解一個人」這件事。現代人很喜歡用 MBTI、依附風格來定義伴侶或朋友，但當你覺得「我完全懂你為什麼這樣」的時候，其實已經停止去感受他了。心理學給了我們了解他人的工具，也給了我們不再真正聆聽的藉口。","全透明的親密關係也是一樣。保留一點秘密，不是不忠誠，而是為了維持「你是你，我是我」的尊嚴。這也是為什麼在社群媒體「過度分享」的時代，我們反而更孤獨：每個人都急著展示一切，就失去了在現實中慢慢探索一個人的耐心與柔情。","另一個讓我記住的想法是：人腦演化不是為了裝下整個網路，而是為了過濾噪音。"],"t":{"ratio":1.641,"spine":true,"color":"#bfdbb8","pages":130,"frontUrl":"/images/books/3d/transparency-society-front.webp","spineUrl":"/images/books/3d/transparency-society-spine.webp"}}]</script><footer class="site-foot"><span>© Jasper 林禹丞</span><span>vanyuc0316@gmail.com ・ <a href="https://www.instagram.com/vanyu.c/" style="color: inherit">IG @vanyu.c</a></span><span class="foot-row"><span>台南 · <time id="clock">臺灣時間</time></span><span data-views-total hidden></span><a href="#">回到頂部 ↑</a><a href="/behind/">網站幕後 →</a></span></footer><a class="to-top" href="#" id="to-top" aria-label="回到頂部" title="回到頂部" hidden><svg class="ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 20V5M5 12l7-7 7 7"/></svg></a></div><script>
+  (function () {
+    const scales = [0.9, 1, 1.15, 1.3];
+    const names = ['小', '標準', '大', '特大'];
+    const root = document.documentElement;
+    const label = document.getElementById('fs-label');
+    let i = scales.indexOf(parseFloat(getComputedStyle(root).getPropertyValue('--k')) || 1);
+    if (i < 0) i = 1;
+    const apply = () => {
+      root.style.setProperty('--k', String(scales[i]));
+      label.textContent = names[i];
+      try { localStorage.setItem('fs-k', String(scales[i])); } catch (e) {}
+    };
+    label.textContent = names[i];
+    document.querySelectorAll('[data-fs]').forEach((b) => b.addEventListener('click', () => {
+      i = Math.min(scales.length - 1, Math.max(0, i + Number(b.dataset.fs)));
+      apply();
+    }));
+
+    // 深淺色切換：按鈕顯示目前是不是深色；手動選過就記住
+    const tb = document.getElementById('theme-btn');
+    const isDark = () => root.dataset.theme === 'dark';
+    const show = () => tb.setAttribute('aria-pressed', String(isDark()));
+    show();
+    tb.addEventListener('click', () => {
+      root.dataset.theme = isDark() ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+      show();
+    });
+    // 回到頂部：捲過一個畫面高之後才出現在右下角
+    const top = document.getElementById('to-top');
+    const showTop = () => { top.hidden = scrollY < innerHeight; };
+    addEventListener('scroll', showTop, { passive: true });
+    showTop();
+    // 頁尾的臺灣時間，每分鐘更新
+    const clock = document.getElementById('clock');
+    const tick = () => { clock.textContent = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()); };
+    tick(); setInterval(tick, 30000);
+
+    // 段落跟隨：捲到哪一段，段落列與側欄目錄就標出哪一段
+    const links = [...document.querySelectorAll('.readbar nav a[href^="#"], .toc a[href^="#"]')];
+    const targets = [...new Set(links.map((a) => decodeURIComponent(a.hash.slice(1))))]
+      .map((id) => document.getElementById(id)).filter(Boolean);
+    if (targets.length) {
+      const bar = document.querySelector('.readbar nav');
+      let current = '';
+      // 讀者開啟「減少動態效果」時，段落列直接跳到位置，不做平滑捲動
+      const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mark = () => {
+        // 最後一個已經捲過畫面上方 1/4 的段落，就是目前在讀的段落
+        const line = window.innerHeight * 0.25;
+        let id = '';
+        for (const t of targets) if (t.getBoundingClientRect().top <= line) id = t.id;
+        if (id === current) return;
+        current = id;
+        for (const a of links) {
+          const on = decodeURIComponent(a.hash.slice(1)) === id;
+          a.classList.toggle('on', on);
+          if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+          // 段落列是橫向捲動的，把目前段落捲進可見範圍（不動到整頁）
+          if (on && bar && bar.contains(a)) bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 3, behavior: still ? 'auto' : 'smooth' });
+        }
+      };
+      let ticking = false;
+      addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; mark(); }); } }, { passive: true });
+      addEventListener('resize', mark);
+      mark();
+    }
+  })();
+</script><script async data-goatcounter="https://jasper4336.goatcounter.com/count" src="https://gc.zgo.at/count.js"></script><script>(function(){const code = "jasper4336";
+
+    // 文章與作品頁顯示這一頁的次數，頁尾顯示全站的總次數；讀不到就保持隱藏
+    const show = (el, path, label) => el && fetch(`https://${code}.goatcounter.com/counter/${path}.json`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => { if (d && d.count) { el.textContent = `${label} ${d.count} 次`; el.hidden = false; } })
+      .catch(() => {});
+    show(document.querySelector('[data-views]'), encodeURIComponent(location.pathname), '瀏覽');
+    show(document.querySelector('[data-views-total]'), 'TOTAL', '全站瀏覽');
+  })();</script></body></html><script>
+(() => {
+  const BOOKS = JSON.parse(document.getElementById('s3d-data').textContent);
+  const TEX = Object.fromEntries(BOOKS.map((b) => [b.id, b.t]));
+  // 書的厚度只是示意：依大概的頁數換算（沒有實際量過）
+  let SW = 100; // 書架上書封的寬（px），寬螢幕放大
+  const thick = (b) => Math.round((14 + (b.t.pages || 200) * 0.075) * SW / 100);
+  const lum = (hex) => { const n = parseInt(hex.slice(1), 16); return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255; };
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 一本書的六個面。W 寬、H 高、D 厚；書背在左邊（-X）
+  function face(cls, w, h, tf, extra = '') {
+    return `<div class="f ${cls}" style="width:${w}px;height:${h}px;transform:${tf};${extra}">`;
+  }
+  function spineHTML(b, t, W, H, D) {
+    const img = t.spine ? `background-image:url(${b.t.spineUrl});` : '';
+    const inner = t.spine ? '' : `<b>${esc(b.title.split('：')[0])}</b><span>${esc(b.author.split('（')[0])}</span>`;
+    return face('spine', D, H, `translateX(${(W - D) / 2}px) rotateY(-90deg) translateZ(${W / 2}px)`, img) + inner + '</div>';
+  }
+  function shellHTML(b, t, W, H, D, withFront) {
+    return (withFront ? face('front', W, H, `translateZ(${D / 2}px)`, `background-image:url(${b.t.frontUrl})`) + '</div>' : '')
+      + face('back', W, H, `rotateY(180deg) translateZ(${D / 2}px)`) + (withFront === 'shelf' ? '' : `<q>${esc(b.oneLine)}</q><small>禹丞的書架・${esc(b.no)}</small>`) + '</div>'
+      + spineHTML(b, t, W, H, D)
+      + face('edge', D, H, `translateX(${(W - D) / 2}px) rotateY(90deg) translateZ(${W / 2}px)`) + '</div>'
+      + face('edge top', W, D, `translateY(${(H - D) / 2}px) rotateX(90deg) translateZ(${H / 2}px)`) + '</div>'
+      + face('edge top', W, D, `translateY(${(H - D) / 2}px) rotateX(-90deg) translateZ(${H / 2}px)`) + '</div>';
+  }
+  const vars = (b, t) => { const c = t.color; return `--c:${c};--sc:${lum(c) > .6 ? '#15171A' : '#F6F2EA'}`; };
+
+  // ── 書櫃排版：依寬度把書分成幾層，年份換了就放一個書擋 ──
+  const caseEl = document.getElementById('case');
+  function layout() {
+    SW = innerWidth >= 900 ? 140 : 100;
+    const avail = caseEl.clientWidth - 32 - 12;
+    const items = [];
+    let year = '';
+    for (const b of BOOKS) {
+      const y = (b.read || '').slice(0, 4);
+      if (y !== year) { year = y; items.push({ end: y, w: 38 }); }
+      items.push({ b, w: thick(b) + 3 });
+    }
+    const rows = [[]]; let used = 0;
+    for (const it of items) {
+      if (used + it.w > avail && rows.at(-1).length) { rows.push([]); used = 0; }
+      rows.at(-1).push(it); used += it.w;
+    }
+    caseEl.innerHTML = rows.map((r) => `<div class="row">${r.map((it) => {
+      if (it.end) return `<div class="bookend" aria-hidden="true">${it.end}${it.end === '2024' ? '<small>起點</small>' : ''}</div>`;
+      const b = it.b, t = TEX[b.id], D = thick(b), H = Math.round(SW * t.ratio);
+      return `<button type="button" class="bk${current && current.b.id === b.id ? ' out' : ''}" data-id="${b.id}" style="width:${D}px;height:${H}px;${vars(b, t)}" aria-label="${esc(b.title)}，${esc(b.author)}，${esc(b.read)} 讀完">`
+        + `<div class="box" style="width:${SW}px;height:${H}px;left:${(D - SW) / 2}px;transform:rotateY(90deg)">${shellHTML(b, t, SW, H, D, 'shelf')}</div></button>`;
+    }).join('')}</div><div class="plank" aria-hidden="true"></div>`).join('');
+  }
+  let current = null;
+  layout();
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layout(); if (current) fit(); }, 150); });
+
+  // 書櫃跟著滑鼠微微改變視角
+  const room = document.querySelector('.room');
+  room.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    const r = room.getBoundingClientRect();
+    room.style.perspectiveOrigin = `${((e.clientX - r.left) / r.width) * 100}% ${-20 + ((e.clientY - r.top) / r.height) * 50}%`;
+  });
+
+  // ── 把一本書的內容排成一頁一頁 ──
+  function paginate(b, W, H) {
+    const cols = Math.floor((W - 44) / 14), lines = Math.floor((H - 66) / 26);
+    const cap = Math.max(60, Math.floor(cols * lines * 0.95));
+    const chunks = []; let cur = [];
+    let n = 0;
+    const flush = () => { if (cur.length) chunks.push(cur); cur = []; n = 0; };
+    for (const para of b.review) {
+      let rest = para;
+      while (rest.length) {
+        const room = cap - n - (cur.length ? cols * 0.6 : 0);
+        if (rest.length <= room) { cur.push(rest); n += rest.length + cols * 0.6; rest = ''; break; }
+        // 太長就在句號或逗號斷開
+        let cut = -1;
+        for (const m of rest.slice(0, Math.max(0, room)).matchAll(/[。；！？，]/g)) cut = m.index + 1;
+        if (cut < room * 0.4) { flush(); if (rest.length <= cap) continue; cut = Math.max(cut, Math.floor(cap * 0.9)); }
+        cur.push(rest.slice(0, cut)); rest = rest.slice(cut); flush();
+      }
+    }
+    flush();
+    const meta = `<h2>${esc(b.title)}</h2><p class="by">${esc(b.author)}${b.translator ? `　${esc(b.translator)} 譯` : ''}</p>
+      <dl><dt>出版</dt><dd>${esc(b.publisher)}・${esc(b.year)}</dd><dt>ISBN</dt><dd>${esc(b.isbn)}</dd><dt>分類</dt><dd>${esc(b.category)}</dd><dt>讀完</dt><dd>${esc(b.read)}</dd></dl>
+      ${b.warning ? `<p class="warn"><b>閱讀提醒</b>${esc(b.warning)}</p>` : ''}`;
+    const pages = [
+      { cls: 'meta', html: meta },
+      { cls: 'one', html: `<div class="kick">一句話</div><q>${esc(b.oneLine)}</q>` },
+      ...chunks.map((c) => ({ cls: '', html: c.map((p) => `<p>${esc(p)}</p>`).join('') })),
+      { cls: 'end', html: '<p>（完）</p><p style="font-size:12px">文字版書架也看得到完整短評</p>' },
+    ];
+    if (pages.length % 2) pages.push({ cls: 'blank', html: '' });
+    return pages;
+  }
+
+  // ── 拿下來的書 ──
+  const stage = document.getElementById('stage'), holder = document.getElementById('holder');
+  const capT = document.getElementById('cap-t'), capS = document.getElementById('cap-s'), pos = document.getElementById('pos');
+  const bOpen = document.getElementById('b-open'), bPrev = document.getElementById('b-prev'), bNext = document.getElementById('b-next'), bBack = document.getElementById('b-back');
+  let S = {}; // 目前的狀態：尺寸、轉角、翻到哪一頁
+
+  function size(t) {
+    const vw = innerWidth, vh = innerHeight;
+    let W = Math.min(290, vw - 70, (vh - 190) / t.ratio);
+    return { W: Math.round(W), H: Math.round(W * t.ratio), wide: vw >= 2 * W + 80 };
+  }
+  function build() {
+    const { b, t } = current; const { W, H, D } = S;
+    const pages = paginate(b, W - 4, H - 8);
+    S.pages = pages; S.leaves = pages.length / 2;
+    const g = Math.max(0.6, (D - 4) / (S.leaves + 2));
+    S.g = g;
+    let html = `<div class="box" id="box" style="position:absolute;left:${-W / 2}px;top:${-H / 2}px;width:${W}px;height:${H}px;${vars(b, t)}">`
+      + shellHTML(b, t, W, H, D, false)
+      // 封面：一片可以翻開的板子，正面是書封，背面是內封
+      + `<div class="leaf" id="cover" style="width:${W}px;height:${H}px;top:0"><div class="f front" style="width:${W}px;height:${H}px;background-image:url(${b.t.frontUrl})"></div>`
+      + `<div class="bk-side inside"><div class="pg ex l" style="width:100%;height:100%;background:transparent"><div class="seal">禹丞藏書</div><div>No. ${esc(b.no)}</div><div>${esc(b.read)} 讀完</div></div></div></div>`;
+    for (let i = 0; i < S.leaves; i++) {
+      const fp = pages[2 * i], bp = pages[2 * i + 1];
+      html += `<div class="leaf page" data-i="${i}" style="width:${W - 4}px;height:${H - 8}px;top:4px">`
+        + `<div class="pg r ${fp.cls}">${fp.html}<span class="no">${2 * i + 1}</span></div>`
+        + `<div class="bk-side pg l ${bp.cls}">${bp.html}${bp.cls === 'blank' ? '' : `<span class="no">${2 * i + 2}</span>`}</div></div>`;
+    }
+    holder.innerHTML = html + '</div>';
+    S.cover = holder.querySelector('#cover'); S.leafEls = [...holder.querySelectorAll('.leaf.page')];
+    paint();
+  }
+  // 依狀態排每一片的位置：已翻過的疊在左邊，越晚翻的越上面
+  function paint() {
+    const { D, g, leaves } = S; const top = D / 2;
+    S.cover.style.transform = S.open ? `translateZ(${top - (leaves + 1) * g}px) rotateY(-178deg)` : `translateZ(${top}px) rotateY(0deg)`;
+    S.leafEls.forEach((el, i) => {
+      const flipped = i < S.at;
+      const z = flipped ? top - (leaves - i) * g : top - (i + 1) * g;
+      el.style.transform = `translateZ(${z}px) rotateY(${flipped ? -178 : 0}deg)`;
+    });
+    place();
+    bOpen.textContent = S.open ? '闔上' : '翻開';
+    bPrev.disabled = !S.open || S.at === 0;
+    bNext.disabled = !S.open || S.at >= leaves - 1;
+    const p = S.open ? S.at * 2 + 1 : 0;
+    pos.textContent = S.open ? `${p}／${S.pages.length}` : '';
+  }
+  function place(extra = '') {
+    const { W } = S;
+    const tx = S.open ? (S.wide ? W / 2 : 0) : 0;
+    const rx = S.open ? 0 : S.rx, ry = S.open ? 0 : S.ry;
+    holder.style.transform = `translate3d(${tx}px,0,0) rotateX(${rx}deg) rotateY(${ry}deg)${extra}`;
+  }
+  function fit() {
+    const sz = size(current.t); Object.assign(S, sz); build();
+    stage.querySelector('.floor').style.setProperty('--fy', `${S.H / 2 + 30}px`);
+  }
+
+  let opener = null;
+  function take(btn) {
+    const b = BOOKS.find((x) => x.id === btn.dataset.id), t = TEX[b.id];
+    current = { b, t, btn }; opener = btn;
+    S = { D: thick(b) * 160 / SW, rx: 8, ry: -28, open: false, at: 0 };
+    Object.assign(S, size(t));
+    capT.textContent = b.title; capS.textContent = `${b.author.split('（')[0]}・${b.read} 讀完`;
+    stage.classList.add('on'); build();
+    // 從書架上的位置飛出來：先放在書背的位置、轉成書背朝前，再補間到中間
+    const r = btn.getBoundingClientRect(), hc = holder.getBoundingClientRect();
+    const dx = r.left + r.width / 2 - hc.left, dy = r.top + r.height / 2 - hc.top, k = (r.height / S.H);
+    holder.classList.remove('anim');
+    holder.style.transform = `translate3d(${dx}px,${dy}px,0) scale(${k}) rotateY(90deg)`;
+    btn.classList.add('out');
+    holder.getBoundingClientRect();
+    holder.classList.add('anim');
+    requestAnimationFrame(() => { stage.classList.add('show'); place(); });
+    setTimeout(() => holder.classList.remove('anim'), reduce ? 0 : 800);
+    bOpen.focus({ preventScroll: true });
+  }
+  function putBack() {
+    if (!current) return;
+    const btn = current.btn;
+    S.open = false; S.at = 0; paint();
+    const go = () => {
+      const r = btn.getBoundingClientRect(), hc = holder.parentElement.getBoundingClientRect();
+      const cx = hc.left + hc.width / 2, cy = hc.top + hc.height * 0.46;
+      holder.classList.add('anim');
+      holder.style.transform = `translate3d(${r.left + r.width / 2 - cx}px,${r.top + r.height / 2 - cy}px,0) scale(${r.height / S.H}) rotateY(90deg)`;
+      stage.classList.remove('show');
+      setTimeout(() => { stage.classList.remove('on'); holder.classList.remove('anim'); holder.innerHTML = ''; btn.classList.remove('out'); current = null; opener && opener.focus({ preventScroll: true }); }, reduce ? 0 : 760);
+    };
+    setTimeout(go, reduce ? 0 : 380);
+  }
+  function setOpen(v) { S.open = v; if (!v) S.at = 0; holder.classList.add('anim'); paint(); setTimeout(() => holder.classList.remove('anim'), 760); }
+  function flip(d) {
+    if (!S.open) { if (d > 0) setOpen(true); return; }
+    const n = Math.max(0, Math.min(S.leaves - 1, S.at + d));
+    if (n === S.at) { if (d < 0 && S.at === 0) setOpen(false); return; }
+    S.at = n; paint();
+  }
+
+  caseEl.addEventListener('click', (e) => { const btn = e.target.closest('.bk'); if (btn && !current) take(btn); });
+  bOpen.addEventListener('click', () => setOpen(!S.open));
+  bPrev.addEventListener('click', () => flip(-1));
+  bNext.addEventListener('click', () => flip(1));
+  bBack.addEventListener('click', putBack);
+  stage.querySelector('.scrim').addEventListener('click', putBack);
+  addEventListener('keydown', (e) => {
+    if (!current) return;
+    if (e.key === 'Escape') { e.preventDefault(); putBack(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); flip(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); flip(-1); }
+    else if (e.key === 'Tab') { // 焦點留在對話框裡
+      const f = [...stage.querySelectorAll('button:not(:disabled)')];
+      const i = f.indexOf(document.activeElement);
+      if (e.shiftKey && i <= 0) { e.preventDefault(); f.at(-1).focus(); }
+      else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+
+  // 拖曳：闔著的時候轉動書本；翻開的時候左右滑動翻頁
+  let drag = null;
+  holder.addEventListener('pointerdown', (e) => {
+    if (!current) return;
+    drag = { x: e.clientX, y: e.clientY, rx: S.rx, ry: S.ry, moved: false, t: e.timeStamp };
+    holder.setPointerCapture(e.pointerId); holder.classList.add('drag');
+  });
+  holder.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 4) drag.moved = true;
+    if (!S.open) {
+      S.ry = drag.ry + dx * 0.5; S.rx = Math.max(-50, Math.min(50, drag.rx - dy * 0.35)); place();
+    }
+  });
+  const end = (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    holder.classList.remove('drag');
+    if (S.open && Math.abs(dx) > 40) flip(dx < 0 ? 1 : -1);
+    else if (!drag.moved) { // 單純點一下：闔著就翻開；翻開時點右半邊下一頁、左半邊上一頁
+      if (!S.open) setOpen(true);
+      else { const hb = holder.getBoundingClientRect(); flip(e.clientX >= hb.left ? 1 : -1); }
+    }
+    drag = null;
+  };
+  holder.addEventListener('pointerup', end);
+  holder.addEventListener('pointercancel', () => { drag = null; holder.classList.remove('drag'); });
+
+})();
+</script>
