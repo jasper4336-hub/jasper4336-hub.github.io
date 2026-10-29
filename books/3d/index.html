@@ -248,7 +248,8 @@
         + (k < N - 1 ? strip(fp, bp, i, k + 1) : '') + '</div>';
     };
     for (let i = 0; i < S.leaves; i++) {
-      html += `<div class="leaf page" data-i="${i}" style="width:${PW}px;height:${PH}px;top:4px">${strip(pages[2 * i], pages[2 * i + 1], i, 0)}</div>`;
+      // 書頁往內縮 2px：邊緣若剛好貼在書背那個平面上，iPhone 的 Safari 會把書頁的邊畫穿書背，轉到某些角度出現白色細線
+      html += `<div class="leaf page" data-i="${i}" style="width:${PW}px;height:${PH}px;top:4px;left:2px">${strip(pages[2 * i], pages[2 * i + 1], i, 0)}</div>`;
     }
     holder.innerHTML = html + '</div>';
     // 有圖的面改 .sh 的透明度（不重畫圖），其他面改自己背景裡的 --sh
