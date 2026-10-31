@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>此刻|Jasper 林禹丞</title><meta name="description" content="林禹丞現在在讀什麼、做什麼、煩惱什麼。鴿子捎來的信，一封一封留在島上。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="此刻|Jasper 林禹丞"><meta property="og:description" content="林禹丞現在在讀什麼、做什麼、煩惱什麼。鴿子捎來的信，一封一封留在島上。"><meta property="og:url" content="https://jasper4336-hub.github.io/now/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og-home.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站：我做的學習工具，和做它們的過程。"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/now/"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.a896fbde.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.69ea46c9.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.a896fbde.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.69ea46c9.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>此刻|Jasper 林禹丞</title><meta name="description" content="林禹丞現在在讀什麼、做什麼、煩惱什麼。鴿子捎來的信，一封一封留在島上。"><meta property="og:type" content="website"><meta property="og:site_name" content="Jasper 林禹丞"><meta property="og:locale" content="zh_TW"><meta property="og:title" content="此刻|Jasper 林禹丞"><meta property="og:description" content="林禹丞現在在讀什麼、做什麼、煩惱什麼。鴿子捎來的信，一封一封留在島上。"><meta property="og:url" content="https://jasper4336-hub.github.io/now/"><meta property="og:image" content="https://jasper4336-hub.github.io/images/og/now.jpg"><meta property="og:image:alt" content="Jasper 林禹丞的個人網站：我做的學習工具，和做它們的過程。"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/jpeg"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="https://jasper4336-hub.github.io/now/"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="alternate" type="application/rss+xml" title="Jasper 林禹丞" href="/rss.xml"><link rel="preload" href="/fonts/noto-sans-tc.a896fbde.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/noto-serif-tc.69ea46c9.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:'Noto Sans TC';src:url('/fonts/noto-sans-tc.a896fbde.woff2') format('woff2');font-weight:400 700;font-display:swap}@font-face{font-family:'Noto Serif TC';src:url('/fonts/noto-serif-tc.69ea46c9.woff2') format('woff2');font-weight:700 900;font-display:swap}@font-face{font-family:'Playfair Display';src:url('/fonts/playfair-display.1906c2e1.woff2') format('woff2');font-weight:700 900;font-display:swap}</style><script>
   // 先套用讀者上次選的字級，避免畫面跳動
   try { const k = localStorage.getItem('fs-k'); if (k) document.documentElement.style.setProperty('--k', k); } catch (e) {}
   // 先套用讀者手動選的深淺色，沒選過就跟著系統
@@ -147,8 +147,8 @@ let shown=entries.length,mood=(entries[shown-1]||{}).mood||'平靜';
 const stageEl=document.getElementById('nw-stage'),BOOKS=+stageEl.dataset.books||0,params=new URLSearchParams(location.search),TEST=params.has('test');
 const cv=document.getElementById('c'),g=cv.getContext('2d'),$=id=>document.getElementById(id),W=256,H=128;
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-let clockMode='auto',night=false;
-function syncClock(){const h=new Date().getHours();night=clockMode==='auto'?(h<6||h>=18):clockMode==='night'}
+let clockMode='auto',night=false,bedtime=false;
+function syncClock(){const h=new Date().getHours();night=clockMode==='auto'?(h<6||h>=18):clockMode!=='day';bedtime=clockMode==='auto'?(h<6||h>=23):clockMode==='late'}
 const R=(x,y,w,h,c)=>{g.fillStyle=c;g.fillRect(Math.round(x),Math.round(y),w,h)};
 function spr(rows,x,y,flip){x=Math.round(x);y=Math.round(y);for(let j=0;j<rows.length;j++){const r=rows[j];for(let i=0;i<r.length;i++){const ch=r[i];if(ch==='.')continue;g.fillStyle=PAL[ch];g.fillRect(flip?x+r.length-1-i:x+i,y+j,1,1)}}}
 const PALS={day:{sky:'#8fd3f4',sky2:'#c7ecf7',sea:'#2e8fd0',sea2:'#57ace0',deep:'#2479b8',foam:'#d9f3f8',sand:'#f2d99a',sand2:'#dcbb74',wet:'#c8a764',leaf:'#46a854',leaf2:'#2f8340',leaf3:'#70c468',trunk:'#94683c',trunk2:'#75502c',sun:'#ffd85a'},
@@ -176,15 +176,15 @@ function crate(x,y){R(x,y,14,10,'#9b6e3f');R(x,y+3,14,1,'#7a5430');R(x,y+7,14,1,
 function lay(n){const crates=Math.floor(n/PER_CRATE),rest=n%PER_CRATE;return{crates,stacks:Math.floor(rest/PER_STACK),part:rest%PER_STACK}}
 function step(o,sp,dt){if(o.tx==null)return false;const dx=o.tx-o.x,dy=o.ty-o.y,d=Math.hypot(dx,dy);if(d<1||now-o.t0>7000){o.tx=null;o.walk=false;o.pass=false;const f=o.then;o.then=null;if(f)f();return true}const s=Math.min(d,sp*dt),bx=o.x,by=o.y;o.x+=dx/d*s;o.y+=dy/d*s;if(!o.pass){pushOut(o);if(Math.hypot(o.x-bx,o.y-by)<s*.25){o.stall=(o.stall||0)+1;if(o.stall>4){o.stall=0;o.tx=null;o.walk=false;const f=o.then;o.then=null;if(f)f();return true}}else o.stall=0}if(Math.abs(dx)>.5)o.dir=dx>0?1:-1;o.walk=true;return false}
 const beh={mode:'stand',until:0,side:1,px:0,py:0};
-const nightSleep=()=>night&&!AWAKE_AT_NIGHT.includes(mood);
+const nightSleep=()=>bedtime&&!AWAKE_AT_NIGHT.includes(mood);
 const idleNow=()=>!delivery&&!act&&now-me.lastInput>IDLE;
 const sleeping=()=>beh.mode==='bed'&&!me.walk&&!me.carry&&idleNow();
-function pick(){if(nightSleep())return'bed';const w={...BEH[mood]};if(night){w.fire=5;delete w.bed}let list=Object.keys(w).filter(k=>k!==beh.mode);if(reduce)list=list.filter(k=>!['bear','wander','pace','petdog','petcat','sea','fire','feed'].includes(k));let r=Math.random()*list.reduce((a,k)=>a+w[k],0);for(const k of list){r-=w[k];if(r<=0)return k}return list[0]||'stand'}
+function pick(){if(nightSleep())return'bed';const w={...BEH[mood]};if(night){w.fire=Object.values(w).reduce((a,b)=>a+b,0)*2;delete w.bed}let list=Object.keys(w).filter(k=>k!==beh.mode);if(reduce)list=list.filter(k=>!['bear','wander','pace','petdog','petcat','sea','fire','feed'].includes(k));let r=Math.random()*list.reduce((a,k)=>a+w[k],0);for(const k of list){r-=w[k];if(r<=0)return k}return list[0]||'stand'}
 function enter(m){beh.mode=m;beh.until=now+(m==='bed'&&nightSleep()?60000:4000+Math.random()*9000);
  if(m==='bed'){if(reduce){me.x=118;me.y=90}else go(me,118,90)}
  if(m==='wander'){const a=Math.random()*6.28;go(me,IS.cx+Math.cos(a)*55*Math.random(),IS.cy+Math.sin(a)*14);beh.until=now+2000+Math.random()*3000}
  if(m==='sea')go(me,112+Math.random()*44,109);
- if(m==='fire')go(me,150,91);
+ if(m==='fire'){go(me,150,91);if(night)beh.until+=15000}
  if(m==='bear')go(me,106,92,()=>{me.dir=-1});
  if(m==='pace'){beh.px=me.x;beh.py=me.y}
  if(m==='petdog'||m==='petcat')claimSocial(m==='petdog'?'dog':'cat');
@@ -211,7 +211,7 @@ function petThink(p,isCat){
  if(p.mode==='rub'&&p.ready&&p.tx==null&&now<p.until){p.rs=-(p.rs||1);go(p,me.x+p.rs*8,me.y+2)}
  if(p.mode==='pounce'&&p.tx==null&&Math.floor(now/900)!==p.pk){p.pk=Math.floor(now/900);p.hop=now+350}
  if(now<p.until||p.tx!=null)return;
- const w=isCat?{loaf:4,sit:2,groom:2,wander:2,rub:3,stretch:2,pounce:2,toDog:2}:{wander:3,sit:1,lie:1,wag:2,greet:4,spin:2,zoom:2,sniff:2};if(night){w.fire=4;delete w.zoom}
+ const w=isCat?{loaf:4,sit:2,groom:2,wander:2,rub:3,stretch:2,pounce:2,toDog:2}:{wander:3,sit:1,lie:1,wag:2,greet:4,spin:2,zoom:2,sniff:2};if(night){w.fire=10;delete w.zoom}
  const who=isCat?'cat':'dog',busyMe=beh.mode==='letter'||(duo&&['hug','kiss','comfortHim','comfortHer'].includes(duo.type));const keys=Object.keys(w).filter(k=>k!==p.mode&&(!SOCIAL.includes(k)||(now>socialUntil&&lastSocial!==who&&!busyMe)));let r=Math.random()*keys.reduce((a,k)=>a+w[k],0),m=keys[0];for(const k of keys){r-=w[k];if(r<=0){m=k;break}}
  if(reduce&&!['loaf','sit','groom','lie','wag','stretch'].includes(m))m='sit';
  p.mode=m;p.until=now+3000+Math.random()*(isCat?11000:6000);
@@ -231,9 +231,9 @@ function startDuo(type,here){if(herAsleep())return;me.then=null;she.then=null;sh
  if(here)return;
  const d=type==='hug'||type==='kiss'?7:11;let mx=(me.x+she.x)/2,my=Math.max(me.y,she.y);
  // 坐著聊天、白天多半坐上長椅
- const bench=(type==='chat'&&duo.sit)||(type==='sit'&&!night&&Math.random()<.65);
+ const bench=!night&&((type==='chat'&&duo.sit)||(type==='sit'&&Math.random()<.65));
  if(bench){duo.bench=true;go(me,BENCH.x+5,BENCH.y);go(she,BENCH.x+17,BENCH.y);return}
- if(type==='sit'){if(night){mx=150;my=93}else{mx=112+Math.random()*44;my=107}}
+ if(type==='sit'||(type==='chat'&&night)){if(night){mx=150;my=93}else{mx=112+Math.random()*44;my=107}}
  if(type==='comfortHim'){go(she,me.x+d,me.y);return}
  if(type==='comfortHer'){go(me,she.x-d,she.y);return}
  if(type==='bear'){go(she,BEARSPOT.x,BEARSPOT.y+1);go(me,112,94);return}
@@ -252,12 +252,12 @@ function duoUpdate(){
 function herThink(){if(duo)return;if(nightSleep()){if(she.mode!=='bed'){she.mode='bed';go(she,124,90)}return}
  if(she.mode==='bed'){she.mode='stand';she.until=0}
  if(she.tx!=null||now<she.until)return;
- const w=reduce?{stand:1,sit:2,read:2}:{stand:1,sit:2,read:2,wander:3,near:2};if(!reduce&&now>socialUntil&&!busyPets()){w.petdog=4;w.petcat=4}if(night)w.fire=3;
+ const w=reduce?{stand:1,sit:2,read:2}:{stand:1,sit:2,read:2,wander:3,near:2};if(!reduce&&now>socialUntil&&!busyPets()){w.petdog=4;w.petcat=4}if(night)w.fire=16;
  const ks=Object.keys(w).filter(k=>k!==she.mode);let r=Math.random()*ks.reduce((a,k)=>a+w[k],0),m=ks[0];for(const k of ks){r-=w[k];if(r<=0){m=k;break}}
  she.mode=m;she.until=now+4000+Math.random()*9000;
  if(m==='wander'){const a=Math.random()*6.28;go(she,IS.cx+Math.cos(a)*58*Math.random(),IS.cy+Math.sin(a)*14)}
  if(m==='near')go(she,me.x+13,me.y+1);
- if(m==='fire')go(she,158,92);
+ if(m==='fire'){go(she,158,92);she.until+=15000}
  if(m==='petdog'||m==='petcat'){const q=m==='petdog'?dog:cat;claimSocial(m==='petdog'?'dog':'cat');q.tx=null;q.mode='sit';q.until=now+6000;go(she,q.x+(m==='petdog'?13:11),q.y+1,()=>{she.dir=-1;q.heart=now+1800;q.hop=now+1000;she.heart=now+900})}
 }
 const busyPets=()=>cat.mode==='eat'||dog.mode==='eat';
@@ -452,9 +452,9 @@ function grow(n){const last=entries[entries.length-1];while(entries.length<n){co
 if(TEST){$('nw-test').hidden=false;$('add').onclick=()=>{if(delivery)return;grow(shown+1);if(reduce){shown++;refresh();return}me.tx=null;me.lastInput=now;delivery={t0:now,st:0};say('鴿子來了。')};
  document.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{delivery=null;me.carry=false;grow(+b.dataset.n);shown=+b.dataset.n;refresh()})}
 // 時間：預設照現實，也能手動切白天或夜晚，再切回現實
-const ck=$('nw-clock');[['auto','照現實時間'],['day','白天'],['night','夜晚']].forEach(([k,t])=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',k===clockMode);b.onclick=()=>{clockMode=k;[...ck.querySelectorAll('button')].forEach(o=>o.setAttribute('aria-pressed',o===b));syncClock();beh.until=0;me.lastInput=-1e9};ck.append(b)});
+const ck=$('nw-clock');[['auto','照現實時間'],['day','白天'],['night','夜晚'],['late','深夜']].forEach(([k,t])=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',k===clockMode);b.onclick=()=>{clockMode=k;[...ck.querySelectorAll('button')].forEach(o=>o.setAttribute('aria-pressed',o===b));syncClock();beh.until=0;me.lastInput=-1e9};ck.append(b)});
 if(TEST){const mb=$('moods');Object.keys(MOODS).forEach(k=>{const b=document.createElement('button');b.type='button';b.textContent=k;b.setAttribute('aria-pressed',k===mood);b.onclick=()=>{mood=k;[...mb.children].forEach(o=>o.setAttribute('aria-pressed',o===b));me.lastInput=-1e9;act=null;beh.until=0};mb.append(b)});
- window.__t={day(){clockMode='day';syncClock()},nightNow(){clockMode='night';syncClock()},sim(sec,cb){for(let i=0;i<sec*15;i++){now+=66.7;update(.0667);if(cb)cb(now)}draw()},social:()=>[socialUntil,lastSocial],she,startDuo,get duo(){return duo},herAsleep,set(m){beh.mode=m;beh.until=now+30000;me.lastInput=-1e9;me.tx=null},beh,sleeping,me,cat,dog,food,get cur(){return cur},get shown(){return shown},get night(){return night},get delivery(){return delivery},HOLIDAY}}
+ window.__t={day(){clockMode='day';syncClock()},nightNow(){clockMode='night';syncClock()},lateNow(){clockMode='late';syncClock()},sim(sec,cb){for(let i=0;i<sec*15;i++){now+=66.7;update(.0667);if(cb)cb(now)}draw()},social:()=>[socialUntil,lastSocial],she,startDuo,get duo(){return duo},herAsleep,set(m){beh.mode=m;beh.until=now+30000;me.lastInput=-1e9;me.tx=null},beh,sleeping,me,cat,dog,food,get cur(){return cur},get shown(){return shown},get night(){return night},get delivery(){return delivery},HOLIDAY}}
 if(HOLIDAY_NAME)$('nw-holiday').textContent='今天島上也在過'+HOLIDAY_NAME+'。';
 syncClock();refresh();start();
 </script>
