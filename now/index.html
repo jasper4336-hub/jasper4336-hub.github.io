@@ -302,7 +302,7 @@ function update(dt){
  if(nextSay&&now>nextSay.at){if(!herAsleep()){say(nextSay.t,2600,{x:she.x,y:she.y});she.heart=now+1500}nextSay=null}
  fishUpdate();duoUpdate();herThink();step(she,duo&&duo.type==='play'?50:42,dt);if(she.tx==null&&!(duo&&duo.type==='hand'))she.walk=false;
  // 走到小熊旁邊，它會打招呼
- {const nb=Math.hypot(me.x-BEARSPOT.x,me.y-BEARSPOT.y);if(nb<16&&!bearSaid&&!she.bear&&!sleeping()){bearSaid=true;say('你好呀，我是小卷',2800,{x:116,y:82})}else if(nb>30)bearSaid=false}
+ {const nb=Math.hypot(me.x-BEARSPOT.x,me.y-BEARSPOT.y);if(nb<16&&!bearSaid&&!she.bear&&!sleeping()&&beh.mode!=='bed'){bearSaid=true;say('你好呀，我是小卷',2800,{x:116,y:82})}else if(nb>30)bearSaid=false}
  petThink(cat,true);petThink(dog,false);step(cat,22,dt);step(dog,dog.mode==='zoom'?74:46,dt);keepApart(cat,dt);keepApart(dog,dt);
  if(act&&now>act.until)act=null;
  if(!$('bub').hidden){if(now>bubUntil)$('bub').hidden=true;else placeBub()}
